@@ -16,7 +16,6 @@
             <!-- 登录框 -->
             <div class="inp">
                 <input v-model="uname" :class="{danger:off}"  type="text" placeholder="请输入您的账号" @blur="uname_not_have_text">
-
                 <span class="inp-hint" v-text="uname_err"></span>
 
                 <input v-model="upwd" type="password" placeholder="请输入您的密码" @blur="upwd_not_have_text">
@@ -76,7 +75,7 @@ export default {
                 this.uname_err="账号不能为空"
             }else{
                 this.uname_err="";
-            };
+            }
         },
         // 密码非空验证
         upwd_not_have_text(){
@@ -127,9 +126,10 @@ export default {
                  this.$router.push("/reg")
              }else if(res.data.code===-1){
                  this.uname_err="账号或密码错误"
+                 this.upwd="";
                  this.createCode(); //刷新验证码
              }
-         }).catch(err=>{
+         }).catch((err)=>{
              alert("登录失败,请稍后再试")
          })
        }

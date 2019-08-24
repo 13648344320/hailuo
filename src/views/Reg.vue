@@ -156,10 +156,11 @@ export default {
                         this.uname_err="";
                     }else{
                         this.uname_show=true;
+                        this.uname_pass_show=false,
                         this.uname_err="该账号已被注册"
                     }
                 }).catch(err=>{
- 
+                    return err;
                 })
             }
         },//verify -end
@@ -189,12 +190,12 @@ export default {
     },
        //点击注册时层层筛选  
     validate() {
-        console.log(this.pass)
-       if(!(this.account&&this.login_pwd&&this.login_pwd2&&this.phone)){//都为空 调用所有验证方法
+       if(!(this.account&&this.login_pwd&&this.login_pwd2&&this.phone&&(!this.uname_show))){//都为空 调用所有验证方法
         this.verify();
         this.upwd_ok(); 
         this.upwd2_ok();
         this.is_phone();
+        this.createCode();
        }else{ 
             this.verify_show=false;
                 // 发送axios请求
@@ -214,8 +215,7 @@ export default {
         }//validate()-end
     },  //methods-end
     mounted() {
-        this.createCode();
-        console.log(this.pass)
+        this.createCode();  
     },
 }
 </script>

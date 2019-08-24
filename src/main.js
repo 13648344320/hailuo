@@ -4,6 +4,7 @@ import router from './router'
 import MyHeader from './components/Myheader'
 import MyFooter from './components/MyFooter'
 import Carousel from './components/Carousel'
+import TencnetMap from './components/TencnetMap'
 
 
 //  引入轮播图组件部分
