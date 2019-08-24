@@ -90,8 +90,14 @@
     padding: 10px 22px;
     border-radius: 4px;
     border-width:2px;
+    outline: none;
     border: 1px solid #ff5a5f;
     cursor: pointer;
+    transition: all .3s linear;
+}
+/* 鼠标点住注册按钮时的样式 */
+#reg .inp>button:active{
+    outline:1px solid    #008489;
 }
 #reg .inp>button>span{
     color: #fff;
@@ -117,7 +123,7 @@
     font-size: 15px;
 }
 
-.icon_pass{
+#reg .icon_pass{
     display: inline-block;
     width: 28px;height: 28px;
     margin: 0 0 -6px 16px;

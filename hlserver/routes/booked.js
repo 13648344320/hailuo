@@ -41,7 +41,6 @@ router.get("/login", (req, res) => {
     var sql = `SELECT * FROM hl_user WHERE uname=? AND password=?`
     pool.query(sql, [uname, password], (err, result) => {
         if (err) throw err;
-        console.log(result)
         // 如果未查询到,返回的是空数组
         if (result.length) {
             res.send({
@@ -63,7 +62,6 @@ router.get("/reg", (req, res) => {
     var sql = `SELECT * FROM hl_user WHERE uname=?`
     pool.query(sql, [uname], (err, result) => {
         if (err) throw err;
-        console.log(result)
         // 如果未查询到,返回的是空数组
         if (result.length) {
             res.send({
@@ -87,9 +85,7 @@ router.post("/insert_user", (req, res) => {
     var phone = req.body.phone;
     console.log(uname, password, phone)
     var sql = `INSERT INTO hl_user VALUE(?,?,?,?)`
-    console.log(123456)
     pool.query(sql, [null, uname, password, phone], (err, result) => {
-        console.log(result)
         if (result.affectedRows > 0) {
             res.send({
                 code: 1,
