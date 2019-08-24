@@ -9,21 +9,21 @@
             <!-- 房源、日历搜索框 -->
             <div class="lb-fang">
                 <div class="mm">
-                <div class="fy-a">
-                    <select>
-                        <option class="juzhong">房源</option>
-                        <option>渝中区</option>
-                        <option>渝北区</option>
-                        <option>江北区</option>
-                        <option>南岸区</option>
-                        <option>大渡口区</option>
-                        <option>九龙坡区</option>
-                        <option>沙坪坝区</option>
-                    </select>
-                </div>
+                    <div class="fy-a">
+                        <select>
+                            <option class="juzhong">房源</option>
+                            <option>渝中区</option>
+                            <option>渝北区</option>
+                            <option>江北区</option>
+                            <option>南岸区</option>
+                            <option>大渡口区</option>
+                            <option>九龙坡区</option>
+                            <option>沙坪坝区</option>
+                        </select>
+                    </div>
                 <div class="fy-b">
                     <i class="img-dingw"></i>
-                    <input type="text" placeholder="输入目的地、城市">
+                    <input type="text" placeholder="输入目的地、城市" v-model="find" @keydown.enter="findMsg">
                 </div>
                 <div class="fy-c">
                     <i class="img-rili"></i>
@@ -334,14 +334,36 @@
 export default {
     data(){
         return{
-            list:[]
+            list:[],
+            find:""
         }
     },
     
     methods: {
-        view(){
-            
-        }
+        // 监听键盘回车时的搜索
+            findMsg(e){
+                //  用 find 中的值  查询数据库
+                // 如果没有找到 提示用户没找到相关信息
+                // 如果找到
+                // 携带参数跳转到 list 页面
+                //  list 
+                var url="find";
+                var obj ={obj:this.find} ;
+                this.axios.get(url,{params:obj}).then(res=>{
+                    // 如果没找到数据 提示用户没有查询到当地数据
+                    console.log(res)
+                    if(res.data.code==-1){
+                        alert("暂无该地区的房源信息");
+                        return;
+                    }else{
+                        // 携带 find 中的值 跳转 到list 组件
+                        this.$router.push({path:"/list",query:{
+                                     find:this.find}
+                     })
+                   }
+                })
+                
+            },
     },
     created() {
         

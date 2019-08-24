@@ -25,8 +25,10 @@ export default new Router({
                 component:Detail
             },
             {
-                path:'/list',
-                component:List
+                path: '/list',
+                component:List,
+                props: true
+
             },
             {
                 path: "/Login",
@@ -34,7 +36,8 @@ export default new Router({
             }, {
                 path: "/Reg",
                 component: Reg
-            },
+            }
+            
         ]
         
 

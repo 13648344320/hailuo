@@ -3,10 +3,10 @@
     <div class="container w_100 ">
                 <div class="navbar navbar-expand-lg navbar-dark p-0">
                     <div class="navbar-brand">
-                        <div class="img-logo"><img src="../../public/img/index/logo02.png"></div>
+                        <div class="img-logo" @click="backhome"><img src="../../public/img/index/logo02.png"></div>
                         <div class="img-sou">
                             <i class="sou"></i>
-                            <input class="form-control" type="text" placeholder="搜“洪崖洞”试试" v-model="find" @keyup.enter.native="findMsg">
+                            <input class="form-control" type="text" placeholder="搜“洪崖洞”试试" v-model="find" @keyup.enter="findMsg">
                         </div>
                     </div>
                     <button data-toggle="collapse" data-target="#content" class="navbar-toggler navbar-black navbar-light bg_color">
@@ -36,11 +36,36 @@
             }
         },
         methods: {
+            // 监听键盘回车时的搜索
             findMsg(e){
-                if(e.target.Code==13){
-                    alert(`this.find`)
-                }
+                //  用 find 中的值  查询数据库
+                // 如果没有找到 提示用户没找到相关信息
+                // 如果找到
+                // 携带参数跳转到 list 页面
+                //  list 
+                var url="find";
+                var obj ={obj:this.find} ;
+                this.axios.get(url,{params:obj}).then(res=>{
+                    // 如果没找到数据 提示用户没有查询到当地数据
+                    console.log(res)
+                    if(res.data.code==-1){
+                        alert("暂无该地区的房源信息");
+                        return;
+                    }else{
+                        // 携带 find 中的值 跳转 到list 组件
+                        this.$router.push({path:"/list",query:{
+                                     find:this.find}
+                                })
+                    }
+                })
+                
+            },
+            backhome(){
+                this.$router.push("/")
             }
+        },
+        computed: {
+            
         },
     }
 </script>

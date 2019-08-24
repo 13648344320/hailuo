@@ -52,7 +52,7 @@ box-sizing: border-box;
     margin-top: 32px;
 }
 .list_2a{
-    width: 60%;
+    width: 50%;
     min-width: 632px;
     border: 1px solid rgb(235, 235, 235) !important;
     height: 200px;
@@ -202,7 +202,7 @@ box-sizing: border-box;
 .list_4{
     position: absolute !important;
     top: 0px !important;
-    right: 0px !important;
+    left: 370px !important;
     padding-left: 16px !important;
     width: 148px !important;
     border-left: 1px solid #EBEBEB !important;
