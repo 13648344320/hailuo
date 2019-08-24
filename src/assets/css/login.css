@@ -1,0 +1,157 @@
+
+#login{ 
+    /* background: #aaa; */
+    box-sizing: content-box !important;
+    background-image: url("../../../public/img/index/dblb2.jpg");
+    height: 600px;
+}
+
+#login .outer{
+    width: 564px;height: 490px;
+    background: rgb(255, 255, 255,.3);
+    background-repeat: no-repeat;
+    padding: 20px 32px 32px;
+    margin: 32px auto;
+    position: relative;
+}
+/* 海螺网欢迎您 */
+#login .outer>div:nth-child(1){
+    display: inline-block;
+    font-size: 24px;
+    padding: 2px 0;
+    font-weight: bold;
+}
+
+/* 右上角的小×的盒子 */
+/*
+#login .outer>div:nth-child(2){
+    position: absolute;
+    top: 5px;right: 5px;
+    display: inline-block;
+    width:63px;height: 63px;
+    padding: 20px;
+}
+/* 小× 
+#login .outer>div:nth-child(2)>i{
+    display: inline-block;
+    width: 23px;height: 23px;
+    background: url("../../../public/img/小×.png");
+}
+*/
+
+/* 没有账号? */
+#login .outer>div:nth-child(3)>div{
+    display: inline-block;
+    font-size:16px; 
+}
+/* 注册 */
+#login .outer>div:nth-child(3)>a{
+    display: inline-block;
+    font-size:16px;
+    color: #008489;
+    margin: 10px 5px 5px;
+}
+/* 登录框 */
+#login .outer>.inp>input{
+    width: 396px;height: 54px;
+    padding: 11px;
+    outline: none;
+    border:1px solid #008489;
+    text-rendering: auto;
+    margin: 10px 0 10px;
+}
+/* 用户名或密码不能为空 */
+#login .inp>.inp-hint,#login .verify>span{
+    display: block;
+    padding: 0 5px;
+    width: 300px;height: 20px;
+    color: #f00;
+    font-size: 15px;
+}
+/* 验证码专区 */
+
+#login .verify>input:first-child{
+    width: 100px;height:42px;
+    vertical-align: top;
+    margin: 10px 10px 10px 0;
+    padding: 5px 10px 5px;
+    outline: none;
+    border:1px solid #008489
+}
+/* 产生的验证码 */
+#login .checkCode{
+    width: 100px;height: 42px;
+    font-family: Arial;
+    font-style: italic;
+    font-weight: bold;
+    border: 0;
+    letter-spacing: 2px;
+    color: #008489;
+    background: #eee;
+    font-size:20px; 
+    transform: translateY(10px)
+}
+
+/* 记住密码的小框 */
+#login .svg_ok,#login .svg_no{
+    display: inline-block;
+    width: 18px;
+    height: 22px;
+    outline: none;
+    text-rendering: auto;
+    margin: 0 5px 0 0;
+    transform: translateY(4px)
+}
+
+/* 记住我 */
+#login .inp>.remember-me{
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px 0 5px 5px;
+}
+
+/* 忘记密码? */
+#login .inp>.for-get{
+    color: #008489;
+    font-size: 15px;
+    margin: 0 0 0 60%;
+    cursor: pointer;
+}
+
+/* 登录按钮 */
+#login .inp>button{
+    color: #fff;
+    margin: 10px auto 0;
+    width: 504px;height: 48px;
+    background: #ff5a5f;
+    padding: 10px 22px;
+    border-radius: 4px;
+    border-width:2px;
+    outline: none;
+    border: 1px solid #ff5a5f;
+    cursor: pointer;
+}
+#login .inp>button>span{
+    color: #fff;
+    font-size: 16px;
+}
+
+/* 预案 */
+/* 输入框的预案 */
+#login .outer>.inp>.danger{
+    border: 1px solid #d93900;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

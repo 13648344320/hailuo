@@ -1,0 +1,125 @@
+#reg{
+    background: url('../../../public/img/index/dblb4.jpg');
+    height: 795px;
+    width: 100%;
+}
+
+#reg .reg-son{
+        width: 564px;
+        height: 566px;
+        background: rgba(255, 255, 255, .3);
+        padding: 0 32px 0;
+        margin: 50px auto;
+        
+}
+/* 用户注册 */
+#reg .reg-son>div:nth-child(1){
+    display: inline-block;
+    font-size: 24px;
+    padding: 2px 0;
+    font-weight: bold;
+    margin: 0 0 10px    ;
+}
+/* 小× */
+/*
+#reg .reg-son>div:nth-child(2){
+    display: inline-block;
+}
+#reg .reg-son>div:nth-child(3){
+    margin:0 0 5px;
+}
+*/
+
+/* 已有账号? */
+#reg .reg-son>div:nth-child(3)>div{
+    display: inline-block;
+    font-size:16px; 
+}
+/* 登录 */
+#reg .reg-son>div:nth-child(3)>a{
+    display: inline-block;
+    font-size:16px;
+    color: #008489;
+    margin: 5px 5px 15px;
+}
+/* 注册框 */
+#reg .reg-son>.inp>input{
+    display: inline-block   ;
+    width: 394px;height: 52px;
+    padding: 10px;
+    outline: none;
+    border:1px solid #008489;
+    text-rendering: auto;
+    margin: 10px 0 10px;;
+}
+/* 验证码专区 */
+#reg .checkCode {
+    font-family: Arial;
+    font-style: italic;
+    font-weight: bold;
+    border: 0;
+    letter-spacing: 2px;
+    color: blue;
+    font-size:20px;
+}
+#reg .verify>input.input{
+    width: 122px;height: 42px;
+    vertical-align: top;
+    margin: 10px 0 10px;
+    padding: 5px 10px 5px;
+}
+#reg .verify>input.checkCode{
+    width: 100px;height: 42px;
+    background: #008489;
+    border-radius: 2px;
+    margin: 10px 0 10px 15px;;
+}
+
+#reg .checkCode{
+    width: 100px;height: 46px;
+}
+
+
+
+/* 注册按钮 */
+#reg .inp>button{
+    color: #fff;
+    margin: 0 auto;
+    width: 450px;height: 48px;
+    background: #ff5a5f;
+    padding: 10px 22px;
+    border-radius: 4px;
+    border-width:2px;
+    border: 1px solid #ff5a5f;
+    cursor: pointer;
+}
+#reg .inp>button>span{
+    color: #fff;
+    font-size: 16px;
+}
+
+
+
+
+/* 预案区 */
+
+/* 注册信息输入框的预案 */
+#reg .reg-son>.inp>.danger{
+    border: 1px solid #d93900;
+}
+
+/* 提示消息的样式 */
+.text_err{
+    display: block;
+    padding: 0 5px;
+    height: 20px;
+    color: #f00;
+    font-size: 15px;
+}
+
+.icon_pass{
+    display: inline-block;
+    width: 28px;height: 28px;
+    margin: 0 0 -6px 16px;
+    background: url("../../../public/img/icon/pass.png")
+}

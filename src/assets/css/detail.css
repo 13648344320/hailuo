@@ -1,0 +1,419 @@
+/* 主体的大图部分 */
+#detail .detail_body .detail_img{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 550px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #333;
+}
+
+#detail .detail_body .detail_img img{
+    border: 1px solid #333;
+}
+#detail .detail_body .detail_img .detail_img_lg{
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    
+}
+#detail .detail_body .detail_img .masker_lg:hover,
+#detail .detail_body .detail_img .masker_md_top:hover,
+#detail .detail_body .detail_img .masker_md_bt:hover,
+#detail .detail_body .detail_img .masker_right_top:hover,
+#detail .detail_body .detail_img .masker_right_bt:hover
+    {
+    opacity: 0;
+}
+#detail .detail_body .detail_img .masker_lg:hover+div img {
+    transform: scale(1.3);
+    transition: all 1.5s;
+}
+#detail .detail_body .detail_img .detail_img_lg img{
+    height: 100%;
+    width: 100%;
+    transition: all 1.5s;
+}
+#detail .detail_body .detail_img .detail_img_md,
+#detail .detail_body .detail_img .detail_img_right {
+    width: 25%;
+    height: 100%;
+
+}
+#detail .detail_body .detail_img .detail_img_md>div.detail_img_md_top,
+#detail .detail_body .detail_img .detail_img_md>div.detail_img_md_bt,
+#detail .detail_body .detail_img .detail_img_right>div.detail_img_right_top,
+#detail .detail_body .detail_img .detail_img_right>div.detail_img_right_bt
+    {
+    height: 50%;
+    width: 100%;
+    overflow: hidden;
+}
+#detail .detail_body .detail_img .masker_md_top:hover+div img,
+#detail .detail_body .detail_img .masker_md_bt:hover+div img,
+#detail .detail_body .detail_img .masker_right_top:hover+div img,
+#detail .detail_body .detail_img .masker_right_bt:hover+div img
+{
+    transform: scale(1.3);
+    transition: all 1.5s;
+}
+#detail .detail_body .detail_img .detail_img_md img,
+#detail .detail_body .detail_img .detail_img_right img{
+    height: 100%;
+    width: 100%;
+    transition: all 1.5s;
+}
+#detail .detail_body .detail_masker{
+    position: absolute;
+    background: #000;
+    opacity: .7;
+    z-index: 1;
+}
+/* 大图的遮罩层 */
+#detail .detail_body .masker_lg{
+    top:0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    transition: all 1.5s;
+}
+/* 中间上面图的遮罩层 */
+#detail .detail_body .masker_md_top{
+    top:0;
+    left: 50%;
+    width: 25%;
+    height: 50%;
+}
+/* 中间下面图的遮罩层 */
+#detail .detail_body .masker_md_bt{
+    top:50%;
+    left: 50%;
+    width: 25%;
+    height: 50%;
+}
+/* 右边上面图的遮罩层 */
+#detail .detail_body .masker_right_top {
+    top: 0;
+    left: 75%;
+    width: 25%;
+    height: 50%;
+}
+/* 右边下面图的遮罩层 */
+#detail .detail_body .masker_right_bt {
+    top: 50%;
+    left: 75%;
+    width: 25%;
+    height: 50%;
+}
+/* body 中间部分 p 详情 */
+#detail .detail_body .detail_content{
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+}
+#detail .detail_body .detail_content div.detail_desc_head {
+    border-bottom: 1px solid #ddd;
+    height: 50px;
+    width: 100%;
+}
+#detail .detail_body .detail_content div.detail_desc_head p {
+    line-height: 50px;
+}
+#detail .detail_body .detail_content div.detail_desc_head p a{
+    font-size: 16px;
+    font-weight:bolder;
+    display: inline-block;
+    margin-right: 25px;
+    cursor: pointer;
+    color: #008489;
+}
+#detail .detail_body .detail_content div.detail_desc_a{
+    width: 60%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+#detail .detail_body .detail_content div.detail_desc_a>p:nth-child(1){
+    width: 100%;
+    height: auto;
+    margin: 15px 0 5px 0;
+}
+#detail .detail_body .detail_content div.detail_desc_a>p:nth-child(1) span{
+    font-size: 12px;
+    color: #4c5629;
+    font-weight: bold;
+}
+#detail .detail_body .detail_content div.detail_desc_a>p:nth-child(2){
+    color: #484848;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(3){
+    margin-bottom: 6px;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(3) span{
+    font-size: 16px;
+    display: inline-block;
+    margin:0 10px 10px 0;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(3) span i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0px 6px;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(3) span i img{
+    width: 20px;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(4){
+    margin:0 0 18px 0;
+}
+#detail .detail_body .detail_content div.detail_desc_a p:nth-child(4) a{
+    display: inline-block;
+    width: 15%;
+    height: 30px;
+    margin: 10px 0 20px 15px;
+    background: #008489;
+    border-radius: 7px;
+    color: #fff;
+    line-height: 30px;
+    text-align: center;
+}
+#detail .detail_body .detail_content div.detail_desc_a .detail_desc_a_msg{
+    border-top: 1px solid #ddd;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg p:nth-child(1){
+    font-weight: bold;
+    padding: 15px 10px;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg>p:nth-child(2){
+    background: #f8f8f8;
+    color: #484848;
+    font-size: 16px;
+    font-weight:400;
+    line-height: 29px;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_a{
+    margin-top: 30px;
+    margin-bottom: 20px;
+    height: 180px;
+    border-bottom: 1px solid #ddd;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_a>div{
+    border: 1px solid #ddd;
+    width: 30%;
+    height: 130px;
+    float: left;
+    margin-right: 30px;
+    font-weight: bold;
+    text-align: center
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_b{
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    margin-bottom: 30px;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_b>div{
+    margin:10px 0 32px 30px;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_b>div span {
+    display: inline-block;
+    margin-right: 32px;
+    font-size: 16px;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_b>div span:nth-child(1) {
+    font-weight: 600;
+}
+#detail .detail_body .detail_content div.detail_desc_a div.detail_desc_a_msg div.detail_desc_a_msg_c{
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    text-align: center;
+    height: 90px;
+}
+/* 上面为详情部分 */
+/* 下面为评论部分 */
+#detail .detail_body .detail_content div.detail_desc_comment{
+    width: 60%;
+    height: auto;
+}
+#detail .detail_body div.detail_desc_comment div.detail_desc_comment_title{
+        font-size: 38px;
+        font-weight: 600;
+        border-bottom: 1px solid #ddd;
+        padding: 28px 15px;
+}
+#detail_desc_comment ul li{
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid #ddd;
+    line-height: 36px;
+}
+#detail_desc_comment ul li span{
+    display: inline-block;
+    margin-left: 35px;
+    font-size: 18px;
+    font-weight: 600;
+}
+#detail_desc_comment ul li p{
+    margin-left:50px;
+}
+/* 入住须知 */
+#detail_desc_note{
+    width: 60%;
+    height: auto;
+}
+#detail_desc_note div.detail_desc_note_title{
+    font-size: 38px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    padding: 28px 15px;
+}
+#detail_desc_note>div.detail_desc_note_title~div{
+    height: 40px;
+    width: 100%;
+}
+#detail_desc_note>div.detail_desc_note_title~div>span{
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 45px;
+    margin-left: 20px;
+}
+#detail_desc_note>div.detail_desc_note_title~div>a{
+    display: inline-block;
+    width: 60%;
+    height: 50px;
+    margin-top: 15px;
+}
+/* 位置信息 */
+#detail_desc_location div.detail_desc_location_title{
+    font-size: 38px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+    padding: 28px 15px;
+    width: 60%;
+}
+/* 右侧的预定和时间部分 */
+#detail_date{
+    width: 20%;
+    border: 1px solid #ddd;
+    position: fixed;
+    top: 530px;
+    left:62%;
+}
+#detail_date>div{
+    width: 80%;
+    margin: 15px auto;
+}
+#detail_date div.detail_date_price{
+    font-size: 20px;
+    font-weight: 600;
+    height: 32px;
+    
+}
+#detail_date div.detail_date_sale{
+    display: flex;
+    height: 10px;
+}
+#detail_date div.detail_date_sale>div{
+    display: flex;
+    flex-wrap: wrap;
+}
+#detail_date div.detail_date_sale .date_svg{
+    display: inline-block;
+}
+#detail_date div.detail_date_sale span{
+    line-height: 12px;
+    display: inline-block;
+    width: 120px;
+    margin: 1px 14px;
+}
+#detail_date div.detail_date_time{
+    font-weight: bolder;
+}
+#detail_date div.detail_date_time_select{
+    border: 1px solid #ddd;
+    width: 80%;;
+    height: 40px;
+}
+#detail_date div.detail_date_time_select>input{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+#detail_date div.detail_date_gro{
+    border: 1px solid #ddd;
+    width: 80%;
+    height: 40px;
+}
+#detail_date div.detail_date_gro span{
+    display: inline-block;
+    line-height: 40px;
+    width: 40%;
+    height: 40px;
+    margin-left: 10px;
+}
+#detail_date div.detail_date_gro svg{
+    float: right;
+    margin: 10px 5px 5px 0px;
+}
+/* 预定按钮 */
+#detail_date div.detail_date_book{
+    height: 40px;
+    margin-top: 20px;;
+}
+#detail_date div.detail_date_book>a{
+    display: block;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background: #ff5a5f;
+    color: #fff;
+    border-radius: 7px;
+    font-size: 16px;
+    line-height: 40px;
+}
+/* 按钮下面的隐藏选项部分 */
+#detail_date ul.detail_date_hide{
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+    display: none;
+}
+#detail_date ul.detail_date_hide li{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+#detail_date ul.detail_date_hide li>div:nth-child(1){
+    width: 35%;
+    height: 40px;
+    font-size: 18px;
+    font-weight: 600;
+    float: left;
+    padding: 0 0 0 12px;
+}
+#detail_date ul.detail_date_hide li>div:nth-child(2){
+    float: right;
+    width: 65%;
+    display: flex;
+}
+#detail_date ul.detail_date_hide li button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    margin-left: 15px;
+}
+#detail_date ul.detail_date_hide li button svg{
+    margin: 0 auto;
+}
+#detail_date ul.detail_date_hide li>div:nth-child(2)>div{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    margin-left: 19px;
+    font-size: 16px;
+}

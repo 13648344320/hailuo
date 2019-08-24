@@ -1,0 +1,54 @@
+
+#lunbo{
+    height:530px;
+    margin: 0 auto;
+    margin-top: -80px;
+}
+#banner{
+    overflow:hidden;
+    position: relative;
+    height: inherit;
+}
+#ul-Img{
+    list-style: none;
+    position: relative;
+    width:100%;
+    overflow: hidden;
+    height:inherit;
+}
+#ul-Img.transition{
+    transition:all 0.5s linear;
+}
+#ul-Img>li{
+    height: inherit;
+    width:100%;
+    float:left;
+    position:absolute;
+    opacity: 0;
+    left:0;
+    top:0;
+    transition:all .8s;
+}
+#ul-Img>li>a{
+    display: block;
+    height: 530px;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: 50% !important;
+}
+#ul-Img>li.active{
+    opacity: 1;
+   
+}
+#ul-Img>li>a:first-child{
+    background: url(../../../public/img/index/dblb1.jpg) center;
+}
+#ul-Img>li>a:nth-child(2){
+    background: url(../../../public/img/index/dblb2.jpg) center;
+}
+#ul-Img>li>a:nth-child(3){
+    background: url(../../../public/img/index/dblb3.jpg) center;
+}
+#ul-Img>li>a:nth-child(4){
+    background: url(../../../public/img/index/dblb1.jpg) center;
+}
