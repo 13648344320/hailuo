@@ -42,12 +42,6 @@
                 // 如果没有找到 提示用户没找到相关信息
                 // 如果找到
                 // 携带参数跳转到 list 页面
-                //  list 
-<<<<<<< HEAD
-                // asfadfsadfsfsdf
-=======
-                // 你好
->>>>>>> faaff3a342de74cff471a0dadbd6d1092cb9a0fa
                 var url="find";
                 var obj ={obj:this.find} ;
                 this.axios.get(url,{params:obj}).then(res=>{
