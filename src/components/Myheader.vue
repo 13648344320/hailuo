@@ -43,7 +43,7 @@
                 // 如果找到
                 // 携带参数跳转到 list 页面
                 //  list 
-                // 李树强
+                // asfadfsadfsfsdf
                 var url="find";
                 var obj ={obj:this.find} ;
                 this.axios.get(url,{params:obj}).then(res=>{
