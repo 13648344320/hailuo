@@ -19,6 +19,7 @@ Vue.config.productionTip = false;
 Vue.component("my-header", MyHeader);
 Vue.component("my-footer", MyFooter);
 Vue.component("Carousel", Carousel);
+Vue.component("tencnetMap",TencnetMap);
 
 Vue.prototype.axios = axios;
 axios.defaults.baseURL  = "http://localhost:5050";

@@ -6,12 +6,16 @@ import Index from './views/index'
 import List from './views/list'
 import Login from './views/Login'
 import Reg from './views/Reg'
+import map from './views/map-test'
 
 Vue.use(Router)
 
 export default new Router({
     routes:
-        [
+        [   {
+                path:"/map",
+                component:map
+            },
             {
                 path: "/booked", 
                 component: Booked

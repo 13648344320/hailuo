@@ -177,7 +177,6 @@ export default {
                 var obj={obj:find}
                 this.axios.get("find",{params:obj}).then(res=>{
                     this.list = res.data;
-                    console.log(res)
                 }
             )
         }
