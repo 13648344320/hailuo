@@ -43,6 +43,7 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     font-weight: 800;
     padding:10px 10px 10px 55px;
     float: left;
+    outline: none;
 }
 #index-s .bg_color{background:rgba(225, 225, 225,.3)}
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -119,6 +120,7 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     border:1px solid #ccc !important;
     border-top-left-radius: 7px;
     border-bottom-left-radius: 7px;
+    outline: none;
 }
 .lb-fang .fy-b .img-dingw{
     position: absolute;
@@ -138,6 +140,7 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     padding:10px 10px 10px 55px;
     float: left;
     border:1px solid #ddd;
+    outline: none;
 }
 .lb-fang .fy-c .img-rili{
     position: absolute;
@@ -157,6 +160,7 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     padding:10px 10px 10px 55px;
     float: left;
     border:1px solid #ddd;
+    outline: none;
 }
 .lb-fang .fy-d{
     width:70px;
@@ -220,13 +224,19 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     color: #484848 ;
     font-weight: bold ;
     line-height: 20px ;
-    
+    outline: none;
 }
-.zhut .zt-btn span>button:hover{box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);transition: 0.5s;cursor: pointer;}
+.zhut .zt-btn span>button:hover{
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+    cursor: pointer;
+    background: #00848A;
+    color: #fff;
+}
 
 /* 图文区 */
 /* f1 */
-.zt-tuwen{width:1080px;height:710px;}
+.zt-tuwen{width:1080px;height:auto;}
 .zt-tuwen .zt-tu-width{
     width:360px;
     height:355px;
@@ -244,7 +254,9 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
 .zt-tuwen .div-text .div-pj span:first-child>img{margin-bottom: 3px;}
 .zt-tuwen .div-text .div-pj span:last-child{font-size:12px;}
 .zt-tuwen .zt-chak a{font-weight: 600;color:#00848a;font-size:17px;}
-.zt-tuwen .zt-chak{margin:0 8px;}
+.zt-tuwen .zt-chak{
+    margin:0 8px;
+    clear: both;}
 
 /* f2 */
 .zt-title.mt-5{margin-top:70px !important;}
