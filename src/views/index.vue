@@ -58,7 +58,7 @@
                             <div class="zt-tu-width" v-for="(item,i) of list" :key="i">
                             <div class="div-h1" >
                                 <!-- 图片 -->
-                                <div class="div-img" ><a href="javascript:;"><img :src="item.pics" alt="" @click="intoDetail" :data-id="item.id"></a></div>
+                                <div class="div-img" ><a href="javascript:;"><img :src="item.pics" @click="intoDetail" :data-id="item.id"></a></div>
                                 <!-- 详细 -->
                                 <div class="div-text">
                                     <span><a href="javascript:;">{{item.type}} · 1张床</a></span>
@@ -114,7 +114,7 @@
                                     <span>每晚</span>
                                     <!-- 五星好评 -->
                                     <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
+                                        <span><img src="../../public/img/index/wxhp.png"></span>
                                         <span>166 · 超赞房东</span>
                                     </div>
                                 </div>
@@ -128,8 +128,9 @@
                 </div>
             </div>    
             <my-footer/>
-        </div>  
+        </div> 
     </div>
+    
 </template>
 <script>
 export default {
