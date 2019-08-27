@@ -54,115 +54,16 @@
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
+                            <!-- 一个详细信息 -->
+                            <div class="zt-tu-width" v-for="(item,i) of list" :key="i">
+                            <div class="div-h1" >
                                 <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h101.jpg" alt=""></a></div>
+                                <div class="div-img" ><a href="javascript:;"><img :src="item.pics" @click="intoDetail" :data-id="item.id"></a></div>
                                 <!-- 详细 -->
                                 <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        一个详细信息
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h102.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h103.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h104.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h105.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h106.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
+                                    <span><a href="javascript:;">{{item.type}} · 1张床</a></span>
+                                    <p><a href="javascript:;">{{item.details}}</a></p>
+                                    <span>￥{{item.price}}</span>
                                     <span>￥424</span>
                                     <span>每晚</span>
                                     <!-- 五星好评 -->
@@ -200,120 +101,20 @@
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
                         <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
+                        <div class="zt-tu-width" v-for="(item,i) of list" :key="i">
+                            <div class="div-h1" >
                                 <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h201.jpg" alt=""></a></div>
+                                <div class="div-img"    @click="intoDetail"><a href="javascript:;"><img :src="item.pics" :data-id="item.id"></a></div>
                                 <!-- 详细 -->
                                 <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
+                                    <span><a href="javascript:;">{{item.type}} · 1张床</a></span>
+                                    <p><a href="javascript:;">{{item.details}}</a></p>
+                                    <span>￥{{item.price}}</span>
                                     <span>￥424</span>
                                     <span>每晚</span>
                                     <!-- 五星好评 -->
                                     <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h202.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h203.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h204.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h205.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
-                                        <span>166 · 超赞房东</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 一个详细信息 -->
-                        <div class="zt-tu-width">
-                            <div class="div-h1">
-                                <!-- 图片 -->
-                                <div class="div-img"><a href="javascript:;"><img src="../../public/img/index/index-h206.jpg" alt=""></a></div>
-                                <!-- 详细 -->
-                                <div class="div-text">
-                                    <span><a href="javascript:;">整套酒店式公寓 · 1张床</a></span>
-                                    <p><a href="javascript:;">【雾都江景】洪崖洞/解放碑/穿楼地铁/ 大礼堂 网红景点打卡集合地 轻轨站旁 简约日式整租一</a></p>
-                                    <span>￥339</span>
-                                    <span>￥424</span>
-                                    <span>每晚</span>
-                                    <!-- 五星好评 -->
-                                    <div class="div-pj">
-                                        <span><img src="../../public/img/index/wxhp.png" alt=""></span>
+                                        <span><img src="../../public/img/index/wxhp.png"></span>
                                         <span>166 · 超赞房东</span>
                                     </div>
                                 </div>
@@ -327,8 +128,9 @@
                 </div>
             </div>    
             <my-footer/>
-        </div>  
+        </div> 
     </div>
+    
 </template>
 <script>
 export default {
@@ -364,8 +166,22 @@ export default {
                 })
                 
             },
+            intoDetail(e){
+                var id = e.target.dataset.id;
+                // 将获得的 id 传入 detail 页面
+                this.$router.push({path:"/detail",query:{
+                    }
+                                })
+            }
     },
     created() {
+        //  页面创建的时候，查询数据库，获取默认为渝中区的数据
+        var obj = {obj:"渝中"}
+        this.axios.get("find",{params:obj}).then(res=>{
+            //  遍历加载  
+            this.list = res.data;
+            console.log(this.list)
+        })
         
     },
 }

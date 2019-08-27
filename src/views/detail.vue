@@ -189,7 +189,7 @@
                     </div>
                 </div>
                 <!-- 右侧的预定功能部分 -->
-                <div class="detail_date" id="detail_date">
+                <div class="detail_date" id="detail_date" :style="{display:show}">
                     <div class="detail_date_price">￥398 <span>每晚</span> </div>
                     <div class="detail_date_sale">
                         <div>
@@ -211,55 +211,56 @@
                     <div style="font-weight:bolder">房客</div>
                     <div class="detail_date_gro" @click="detail_gro">
                         <span>一位房客</span>
-                        <svg viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false"
+                        <svg viewBox="0 0 18 18" 
+                        :style="{display:svg1}"
+                        role="presentation" aria-hidden="true" focusable="false"
                             style="height: 16px; width: 16px; display: block; fill: currentcolor;">
                             <path d="m16.29 4.3a1 1 0 1 1 1.41 1.42l-8 8a1 1 0 0 1 -1.41 0l-8-8a1 1 0 1 1 1.41-1.42l7.29 7.29z"
                                 fill-rule="evenodd"></path>
                         </svg>
+                        <svg viewBox="0 0 18 18" role="presentation" 
+                        :style="{display:svg2}"
+                        
+                        aria-hidden="true" focusable="false" style="height: 16px; width: 16px; display: block; fill: currentcolor;"><path d="m1.71 13.71a1 1 0 1 1 -1.42-1.42l8-8a1 1 0 0 1 1.41 0l8 8a1 1 0 1 1 -1.41 1.42l-7.29-7.29z" fill-rule="evenodd"></path></svg>
                     </div>
-                    <ul class="detail_date_hide" :class="open">
+                    <ul class="detail_date_hide" :style="{display:open}">
                         <li>
                             <div>成人</div>
                             <div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="subtract" 
-                                    focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect>
-                                    </svg>
-                                </button>
-                                <div>1</div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="add" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg>
-                                </button>
+                                <a @click="reduceN">
+                                    -
+                                </a>
+                                <div>{{n}}</div>
+                                <a @click="addN">
+                                    +
+                                </a>
                             </div>
                         </li>
                         <li>
                             <div>儿童</div>
                             <div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="subtract" 
-                                    focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect>
-                                    </svg>
-                                </button>
-                                <div>0</div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="add" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg>
-                                </button>
+                                <a @click="reduceM">
+                                    -
+                                </a>
+                                <div>{{m}}</div>
+                                <a @click="addM">
+                                    +
+                                </a>
                             </div>
                         </li>
                         <li>
                             <div>婴儿</div>
                             <div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="subtract" 
-                                    focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect>
-                                    </svg>
-                                </button>
-                                <div>0</div>
-                                <button>
-                                    <svg viewBox="0 0 24 24" role="img" aria-label="add" focusable="false" style="height: 1em; width: 1em; display: block; fill: currentcolor;"><rect height="2" rx="1" width="12" x="6" y="11"></rect><rect height="12" rx="1" width="2" x="11" y="6"></rect></svg>
-                                </button>
+                                <a @click="reduceB">
+                                    -
+                                </a>
+                                <div>{{b}}</div>
+                                <a @click="addB">
+                                    +
+                                </a>
                             </div>
                         </li>
+                        <li class="ulClose" @click="ulClose">关闭</li>
                     </ul>
                     <div class="detail_date_book"><a>预定</a></div>
                 </div>
@@ -273,14 +274,81 @@
 export default {
     data(){
         return{
-            open:true
+            open:"",  //控制选择菜单的下拉与隐藏
+            show:"",  //控制左侧预定窗口的显示与隐藏
+            svg1:"none",  // 控制房客后面的向上箭头
+            svg2:"",  // 控制房客后面的向下箭头
+            n:1,     //  客人数目
+            m:0,
+            b:0,
         }
     },
     methods: {
+        reduceN(){
+            // 单击事件  控制  n 人 数的减少
+            if(this.n>1){
+                this.n--
+            }else{
+                this.n=1
+            }
+        },
+        addN(){
+            // 单击事件  控制 n 人数的增加
+            this.n++
+        },
+        reduceM(){
+            // 单击事件  控制  m 人 数的减少
+            if(this.m>0){
+                this.m--
+            }else{
+                this.m=0
+            }
+        },
+        addM(){
+            // 单击事件  控制 M 人数的增加
+            this.m++
+        },
+        reduceB(){
+            // 单击事件  控制  B 人 数的减少
+            if(this.b>0){
+                this.b--
+            }else{
+                this.b=0
+            }
+        },
+        addB(){
+            // 单击事件  控制 B 人数的增加
+            this.b++
+        },
+        ulClose(){
+            // 单击事件  关闭ul 下拉 菜单
+            this.open = "none";
+            this.svg2 = "block";
+            this.svg1 = "none";
+        },
         detail_gro(){
-
-        }
+            // 单击事件控制  顾客选择的ul下拉菜单
+            this.open = "block";
+            this.svg2 = "none";
+            this.svg1 = "block";
+        },
+        // 鼠标滚动触发事件
+        handleScroll(){
+            // 页面滚动距离顶部的距离
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
+                      document.body.scrollTop
+            console.log(scrollTop)
+            if(scrollTop>500 && scrollTop<1800){
+               this.show = "block"
+            }else{
+                this.show = "none"
+            }
+        },
     },
+    mounted(){
+        // 添加鼠标向下滚动事件
+        window.addEventListener('scroll',this.handleScroll,true) 
+    }
 }
 </script>
 <style>
