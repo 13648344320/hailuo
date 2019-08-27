@@ -55,9 +55,9 @@
                 <div class="booked-body-map">
                     <h2>房&nbsp;源&nbsp;位&nbsp;置</h2>
                     <div class="booked-map-img">
-                        <img src="../../public/img/booked/ex02.jpg" alt="">
+                        <tencnetMap/>
                     </div>
-                    <p class="booked-body-map-address"><span><img src="../../public/img/booked/address-sm.png" alt="">   详细地址:</span><span>{{}}</span></p>
+    
                 </div>
             </div>
             <div class="booked-foot">

@@ -43,9 +43,11 @@ router.get("/login", (req, res) => {
         if (err) throw err;
         // 如果未查询到,返回的是空数组
         if (result.length) {
+            // req.session.uname = result[0].uname;
             res.send({
                 code: 1,
-                msg: "success login"
+                msg: "success login",
+                // x: req.session.uname
             })
         } else {
             res.send({
@@ -87,6 +89,7 @@ router.post("/insert_user", (req, res) => {
     var sql = `INSERT INTO hl_user VALUE(?,?,?,?)`
     pool.query(sql, [null, uname, password, phone], (err, result) => {
         if (result.affectedRows > 0) {
+            // req.session.uname = result[0].uname;
             res.send({
                 code: 1,
                 msg: "reg ok"

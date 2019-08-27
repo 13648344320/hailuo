@@ -1,7 +1,4 @@
-*{margin: 0px;
-padding: 0px;
-box-sizing: border-box;
-}
+
 .list_1a{
     display: inline-block !important;
     position: relative !important;
@@ -265,4 +262,20 @@ box-sizing: border-box;
     padding-top: 8px !important;
     padding-bottom: 12px !important;
     /* border: 1px solid red; */
+}
+/* 地图的相关样式 */
+#list-map{
+    position: fixed;
+    left: 51%;
+    top: 172px;
+    WIDTH: 17%;
+}
+#list-map #MAP{
+        width: 287%;
+        height: 800px;
+        border: 1px solid #f00;
+}
+/* 底部宽度 */
+#list-foot{
+    width: 58%;
 }

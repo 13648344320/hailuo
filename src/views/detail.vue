@@ -178,13 +178,10 @@
                         </div>
                         <div class="detail_desc_location" id="detail_desc_location">
                             <div class="detail_desc_location_title">位置</div>
-                            <div>
+                            <div style="margin-top:30px" >
                                 <!-- 预留组件地图 -->
+                                <tencnetMap/>
                             </div>
-                        </div>
-                        <!-- 右侧预定部分 -->
-                        <div >
-
                         </div>
                     </div>
                 </div>
@@ -262,7 +259,7 @@
                         </li>
                         <li class="ulClose" @click="ulClose">关闭</li>
                     </ul>
-                    <div class="detail_date_book"><a>预定</a></div>
+                    <div class="detail_date_book" @click="book"><a>预定</a></div>
                 </div>
             </div>
         </div>
@@ -284,6 +281,13 @@ export default {
         }
     },
     methods: {
+        book(){
+            // 点击预定，获取当前的价格 price  人数gro  detail 位置信息  当前用户的姓名
+            
+            // 向booklist中插入 以上数据
+
+            // 对插入进行验证  成功之后再进行跳转到booked界面  
+        },
         reduceN(){
             // 单击事件  控制  n 人 数的减少
             if(this.n>1){
@@ -347,7 +351,15 @@ export default {
     },
     mounted(){
         // 添加鼠标向下滚动事件
-        window.addEventListener('scroll',this.handleScroll,true) 
+        window.addEventListener('scroll',this.handleScroll,true);
+    },
+    created(){
+        // 页面加载时获取获取上个页面传过来的商品pid
+        // 查询数据库  商品列表
+        
+        // 查询数据库  图片列表
+
+        // 分别加载
     }
 }
 </script>

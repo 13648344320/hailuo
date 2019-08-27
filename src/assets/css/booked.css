@@ -160,20 +160,6 @@ p.booked-body-list-img-sm img {
 #booked div.booked-map-img{
     margin-top:10px;
 } 
-#booked div.booked-body-map img{
-    width: 100%;
-}
-#booked p.booked-body-map-address{
-    height: 30px;
-    margin: 5px 0px 0px 10px;
-}
-#booked p.booked-body-map-address span{
-    font-size: 18px;
-}
-#booked p.booked-body-map-address img{
-   width:30px;
-
-}
 /* 底部foot部分 */
 #booked .booked-foot-list-tips{
     width:70%;

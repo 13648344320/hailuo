@@ -14,13 +14,12 @@
                     </button>
                     <div id="content" class="collapse   navbar-collapse justify-content-xl-end justify-content-md-around">
                         <ul class="navbar-nav  ul-daoh  ">
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">人民币-¥</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">出租房源</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">开展体验</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">故事</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">帮助</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">注册</a></li>
-                            <li class="nav-item"><a class="nav-link p-0" href="javascript:;">登录</a></li>
+                            <li class="nav-item"><a class="nav-link p-0">人民币-¥</a></li>
+                            <li class="nav-item"><a class="nav-link p-0">出租房源</a></li>
+                            <li class="nav-item"><a class="nav-link p-0">开展体验</a></li>
+                            <li class="nav-item"><a class="nav-link p-0">帮助</a></li>
+                            <li class="nav-item" @click="reg"><a class="nav-link p-0">{{regin}}</a></li>
+                            <li class="nav-item" @click="login"><a class="nav-link p-0">{{loginin}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,10 +31,20 @@
     export default {
         data(){
             return {
-                find:""
+                find:"",
+                regin:"注册",
+                loginin:"登录"
             }
         },
         methods: {
+            // 前往登录页面
+            login(){
+                this.$router.push('/Login')
+            },
+            // 前往注册页面
+            reg(){
+                this.$router.push('/Reg')
+            },
             // 监听键盘回车时的搜索
             findMsg(e){
                 //  用 find 中的值  查询数据库

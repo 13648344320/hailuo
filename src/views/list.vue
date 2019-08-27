@@ -1,11 +1,9 @@
 <template>
     <div> 
-        <my-header/>
-        <div class="list">
-            <!-- footer -->
-            <!-- 选项页 -->
-            <hr>
+        <div id="list-head-top" >
+            <my-header/>
             <div class="list_1">
+                            <!-- 选项页 -->
                 <div class="list_1a">
                     <div>
                         <input class="demo-input list_1b" id="test6"   placeholder="日期">
@@ -54,9 +52,11 @@
                         </button>
                     </div>
                 </div>
-
             </div>
-
+            <hr>
+        </div>
+        
+        <div class="list">
                 <!-- 详情页 -->
             <div>
                 <div class="list_2">
@@ -156,7 +156,12 @@
                 </div>
             </div>
         </div>
+        <div id="list-map" :style="{top:open}">
+            <tencnetMap/>
+        </div>
+        <div id="list-foot">
         <my-footer/>
+        </div>
     </div>  
 </template>
 <script>
@@ -166,6 +171,7 @@ export default {
     data(){
         return{
             list:[],
+            open:"172px"
         }
     },
     methods:{
@@ -179,10 +185,24 @@ export default {
                     this.list = res.data;
                 }
             )
-        }
+        },
+         // 鼠标滚动触发事件
+        handleScroll(){
+            // 页面滚动距离顶部的距离
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
+                      document.body.scrollTop
+            console.log(scrollTop)
+            if(scrollTop<175){
+                this.open = "172px"
+            }else{
+                this.open = "0px"
+            }
+        },
     },
     mounted(){
        this.findAll();
+        // 添加鼠标向下滚动事件
+        window.addEventListener('scroll',this.handleScroll,true) 
     },
    watch:{
        '$route' () {

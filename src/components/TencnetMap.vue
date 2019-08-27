@@ -20,7 +20,7 @@
             console.log(AMap)
             this.map = new AMap.Map('MAP', {
             center: [this.lng,this.lat],//[lng:经度,lat:纬度]
-            zoom: 17,
+            zoom: 10,
         });
         var marker=new AMap.Marker({
             position:new AMap.LngLat(this.lng,this.lat) 

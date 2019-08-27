@@ -123,7 +123,8 @@ export default {
          this.axios.get(url,{params:obj})
          .then((res)=>{
              if(res.data.code===1){
-                 this.$router.push("/reg")
+                 console.log(res.data)
+                 this.$router.push("/")
              }else if(res.data.code===-1){
                  this.uname_err="账号或密码错误"
                  this.upwd="";
