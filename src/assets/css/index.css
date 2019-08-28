@@ -197,9 +197,9 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     font-weight: 800;
 }
 .zhut .zt-btn{margin:30px 0 20px 0;padding: 0 8px;}
-.zhut .zt-btn span{
+/* .zhut .zt-btn span{
     margin-right: 20px;
-}
+} */
 .zhut .zt-btn button.active{   /*  导航栏选中状态  */
     width:120px;
     height:48px;
@@ -214,7 +214,7 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     background: #00848A;
     cursor: pointer;
 }
-.zhut .zt-btn span>button{
+.zhut .zt-btn button{
     width: 120px;
     height: 48px;
     border: solid 0.5px #D8D8D8;
@@ -226,8 +226,9 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     font-weight: bold ;
     line-height: 20px ;
     outline: none;
+    margin-right: 20px;
 }
-.zhut .zt-btn span>button:hover{
+.zhut .zt-btn button:hover{
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.15);
     transition: 0.5s;
     cursor: pointer;
@@ -242,10 +243,11 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
     width:360px;
     height:355px;
     float: left;
+    margin-top: 29px;
 }
 .zt-tuwen .div-h1{padding: 0 8px 12px;}
 .zt-tuwen .div-img{overflow: hidden;}
-.zt-tuwen .div-img img{width:100%;border-radius: 3px;transition: 2s;}
+.zt-tuwen .div-img img{width:100%;border-radius: 3px;transition: 2s; height: 250px;}
 .zt-tuwen .div-img img:hover{transform: scale(1.2,1.2);}
 .zt-tuwen .div-text span:first-child a{font-size: 12px;color:#a02f18;text-decoration: none;}
 .zt-tuwen .div-text p{margin: 0;}

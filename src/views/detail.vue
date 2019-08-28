@@ -8,30 +8,30 @@
                 <!-- 大图的遮罩层 -->
                 <div class="detail_masker masker_lg"></div>
                 <div class="detail_img_lg">
-                    <img src="../../public/img/detail/4e776e1e-bf58-44d2-8f37-4baf83670d58.jpg">
+                    <img :src="pics[0].hl_big">
                 </div>                
                 <div class="detail_img_md">
                     <!-- 中间图上面的遮罩层 -->
                     <div class="detail_masker masker_md_top"></div>
                     <div class="detail_img_md_top">
-                        <img src="../../public/img/detail/159f29d9-c19d-44f2-ba88-ecf968fdc3fb.jpg" alt="">
+                        <img :src="pics[0].hl_small1" alt="">
                     </div>
                     <!-- 中间图下面的遮罩层 -->
                     <div class="detail_masker masker_md_bt"></div>
                     <div class="detail_img_md_bt">
-                        <img src="../../public/img/detail/7133a0f3-039e-492c-836c-f03cba59db17.jpg" alt="">
+                        <img :src="pics[0].hl_small2" alt="">
                     </div>
                 </div>
                 <div class="detail_img_right">
                     <!-- 右边图的上面的遮罩层 -->
                     <div class="detail_masker masker_right_top"></div>
                     <div class="detail_img_right_top">
-                        <img src="../../public/img/detail/81994fca-5437-4e1c-b63e-494c1e9e3c71.jpg" alt="">
+                        <img :src="pics[0].hl_small3" alt="">
                     </div>
                     <!-- 右图下面的遮罩层 -->
                     <div class="detail_masker masker_right_bt"></div>
                     <div class="detail_img_right_bt" >
-                        <img src="../../public/img/detail/85a91cf0-940e-4863-a436-8114372f4483.jpg" alt="">
+                        <img :src="pics[0].hl_small4" alt="">
                     </div>
                 </div>
             </div>
@@ -49,8 +49,8 @@
                         <!-- 具体详情 -->
                         <!-- 整体介绍 -->
                         <div class="detail_desc_a" id="detail_desc_a">
-                            <p><span>重庆·</span><span>南岸</span></p>  
-                            <p> [挪威深林] 观音桥/九街/地铁旁复古潮流一居</p>
+                            <p><span>重庆·</span><span>{{pros[0].county}}</span></p>  
+                            <p> {{pros[0].details}}</p>
                             <p>
                                 <span><i><img src="../../public/img/detail/bath.png" alt=""></i>1间卧室</span>
                                 <span><i><img src="../../public/img/detail/bed.png" alt=""></i>1张床</span>
@@ -278,6 +278,8 @@ export default {
             n:1,     //  客人数目
             m:0,
             b:0,
+            pics:[1],  //保存请求 details 获得的数组
+            pros:[1],    //保存 请求product 获得详细数据
         }
     },
     methods: {
@@ -341,7 +343,7 @@ export default {
             // 页面滚动距离顶部的距离
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
                       document.body.scrollTop
-            console.log(scrollTop)
+            // console.log(scrollTop)
             if(scrollTop>500 && scrollTop<1800){
                this.show = "block"
             }else{
@@ -355,10 +357,18 @@ export default {
     },
     created(){
         // 页面加载时获取获取上个页面传过来的商品pid
+        var pid = this.$route.query.pid
+        pid={pid:pid}
         // 查询数据库  商品列表
-        
+        this.axios.get("/find/details",{params:pid}).then((res)=>{
+            this.pics = res.data
+            console.log(this.pics[0])
+        })
         // 查询数据库  图片列表
-
+        this.axios.get('/find/products',{params:pid}).then((res)=>{
+            this.pros = res.data
+            console.log(this.pros)
+        })
         // 分别加载
     }
 }

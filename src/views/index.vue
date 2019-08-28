@@ -43,14 +43,14 @@
                         <h6>低至 8 折，可叠加使用礼券</h6>
                     </div>
                     <!-- 导航栏 -->
-                    <div class="zt-btn">
-                        <span><button class="active">渝中区</button></span>
-                        <span><button>渝北区</button></span>
-                        <span><button>江北区</button></span>
-                        <span><button>南岸区</button></span>
-                        <span><button>九龙坡区</button></span>
-                        <span><button>沙坪坝区</button></span>
-                        <span><button>大渡口区</button></span>
+                    <div class="zt-btn" @click="getInner($event)">
+                        <button class="active">渝中区</button>
+                        <button>渝北区</button>
+                        <button>江北区</button>
+                        <button>南岸区</button>
+                        <button>九龙坡区</button>
+                        <button>沙坪坝区</button>
+                        <button>大渡口区</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
@@ -89,14 +89,14 @@
                         <h3>秋季特惠房源</h3>
                     </div>
                     <!-- 导航栏 -->
-                    <div class="zt-btn">
-                        <span><button class="active">洪崖洞</button></span>
-                        <span><button>解放碑</button></span>
-                        <span><button>观音桥</button></span>
-                        <span><button>磁器口</button></span>
-                        <span><button>朝天门</button></span>
-                        <span><button>南滨路</button></span>
-                        <span><button>飞机场</button></span>
+                    <div class="zt-btn" @click="getInner($event)">
+                        <button class="active">洪崖洞</button>
+                        <button>解放碑</button>
+                        <button>观音桥</button>
+                        <button>磁器口</button>
+                        <button>朝天门</button>
+                        <button>南滨路</button>
+                        <button>江北机场</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
@@ -142,6 +142,25 @@ export default {
     },
     
     methods: {
+        // 监听用户点击上面的地区时
+            getInner(e){
+                if(e.target.localName ==="button"){
+                    var  btn = e.target.innerHTML;
+                    var obj={obj:btn}
+                    var url = "find"
+                    this.axios.get(url,{params:obj}).then(res=>{
+                    // 如果没找到数据 提示用户没有查询到当地数据
+                    console.log(res)
+                    if(res.data.code==-1){
+                        alert("暂无该地区的房源信息");
+                        return;
+                    }else{
+                        // 携带 find 中的值 跳转 到list 组件
+                        this.list = res.data
+                     }
+                   }
+                 )}
+            },
         // 监听键盘回车时的搜索
             findMsg(e){
                 //  用 find 中的值  查询数据库
@@ -167,11 +186,10 @@ export default {
                 
             },
             intoDetail(e){
-                var id = e.target.dataset.id;
+                var pid = e.target.dataset.id;
                 // 将获得的 id 传入 detail 页面
-                this.$router.push({path:"/detail",query:{
-                    }
-                                })
+                console.log(pid)
+                this.$router.push({path:"/detail",query:{pid:pid}})
             }
     },
     created() {
@@ -180,14 +198,11 @@ export default {
         this.axios.get("find",{params:obj}).then(res=>{
             //  遍历加载  
             this.list = res.data;
-            console.log(this.list)
         })
         
     },
 }
 </script>
 <style>
-    /* @import url("../assets/css/bootstrap.css");
-    @import url("../assets/css/lunbo.css");
-    @import url("../assets/css/index.css"); */
+
 </style>
