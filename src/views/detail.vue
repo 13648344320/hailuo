@@ -267,7 +267,8 @@
     </div>
     </div>
 </template>
-<script>
+
+ <script>
 export default {
     data(){
         return{
@@ -280,14 +281,40 @@ export default {
             b:0,
             pics:[1],  //保存请求 details 获得的数组
             pros:[1],    //保存 请求product 获得详细数据
+            time:'123',
+
         }
     },
     methods: {
+             
         book(){
-            // 点击预定，获取当前的价格 price  人数gro  detail 位置信息  当前用户的姓名
-            console.log(this.pros)
-            // 向booklist中插入 以上数据
-            
+            //   判断当先用户是否登录
+            var uname = this.$store.state.uname;
+            console.log(uname)
+            if(uname){ 
+                // 点击预定，获取当前的价格 price  人数gro  detail 位置信息  当前用户的姓名
+                var obj = {
+                    price:this.pros[0].price,
+                    gro:this.pros[0].gro,
+                    details:this.pros[0].detail,
+                    uname:uname,
+                    county:this.pros[0].county,
+                    lg:this.pros[0].lg,
+                    lt:this.pros[0].lt,
+                    type:this.pros[0].type,
+                    pics:this.pics[0].hl_big,
+                    pid:this.pros[0].pid,
+                    time:this.time
+                }
+                console.log(obj)
+                // 向booklist中插入 以上数据
+                var url ="booked/insert"
+                this.axios.get(url,{params:obj}).then((res)=>{
+                    if(res.data.code==1){
+                        this.$router.push("/booked")
+                    }
+                })
+            }
             // 对插入进行验证  成功之后再进行跳转到booked界面  
         },
         reduceN(){
@@ -350,10 +377,22 @@ export default {
                 this.show = "none"
             }
         },
+        getlaydate(){
+             //  引入日期时间组件
+          laydate.render({
+          elem: '#test6',
+          type:'datetime',
+          range: true,
+          change:  (value, date, enddate)=> {
+            this.time =  value;
+          }
+        });
+        }
     },
     mounted(){
         // 添加鼠标向下滚动事件
         window.addEventListener('scroll',this.handleScroll,true);
+       this.getlaydate();
     },
     created(){
         // 页面加载时获取获取上个页面传过来的商品pid
@@ -362,12 +401,10 @@ export default {
         // 查询数据库  商品列表
         this.axios.get("/find/details",{params:pid}).then((res)=>{
             this.pics = res.data
-            console.log(this.pics[0])
         })
         // 查询数据库  图片列表
         this.axios.get('/find/products',{params:pid}).then((res)=>{
             this.pros = res.data
-            console.log(this.pros)
         })
         // 分别加载
     }

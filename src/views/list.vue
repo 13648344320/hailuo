@@ -198,7 +198,6 @@ export default {
             // 页面滚动距离顶部的距离
             var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
                       document.body.scrollTop
-            console.log(scrollTop)
             if(scrollTop<175){
                 this.open = "172px"
             }else{

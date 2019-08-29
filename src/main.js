@@ -35,7 +35,7 @@ import Vuex from "vuex"
 Vue.use(Vuex)
 //   创建一个vuex的存储对象
 var store = new Vuex.Store({
-  state: {
+  state: sessionStorage.getItem('state') ? JSON.parse(sessionStorage.getItem('state')): {
     uname: ''
   }, //共享数据
   mutations: { //添加修改数据函数

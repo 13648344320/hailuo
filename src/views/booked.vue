@@ -8,7 +8,7 @@
                     </a>
                 </div>
                 <ul class="booked-top-right">
-                    <li>海螺欢迎您:&nbsp;<span>伍鑫</span></li>
+                    <li>海螺欢迎您:&nbsp;<span>{{}}</span></li>
                     <li>优惠活动</li>
                     <li>商旅合作</li>
                 </ul>

@@ -13,13 +13,47 @@ router.get("/", (req, res) => {
         }
     })
 })
+//  向booklist 中添加数据
+router.get('/insert',(req,res)=>{
+    console.log(req)
+    var pid = req.query.pid;
+    var uname = req.query.uname;
+    var county = req.query.county;
+    var lg = req.query.lg;
+    var lt = req.query.lt;
+    var type = req.query.type;
+    var gro = req.query.gro;
+    var pics = req.query.pics;
+    var details = req.query.details;
+    var price = req.query.price;
+    var time = req.query.time;
+    console.log(uname)
+    console.log(pid)
+    var sql = `
+    INSERT INTO hl_booklist VALUE( null,?,?,?,?,?,?,?,?,?,?,? )
+    `
+    pool.query(sql,[pid,uname,county,lg,lt,type,gro,pics,details,price,time],(err,result)=>{
+        if(err) throw err;
+
+        if (result.affectedRows > 0){
+            res.send({
+                code:1,
+                msg:"预定成功"
+            })
+        }else{
+            res.send({
+                code:-1,
+                msg:"预定失败"
+            })
+        }
+    })
+})
 // 功能  删除预定列表中的数据=====取消预定
 router.get("/del", (req, res) => {
     var id = req.query.id
     var sql = `DELETE FROM hl_booklist WHERE id= ? `
     pool.query(sql, [id], (err,result) => {
          if (err) throw err;
-         console.log(result);
          // 添加判断条件  如果sql  insert/delete/update 执行成功条件：影响行数 affectedRows
          if (result.affectedRows > 0) {
              res.send({
@@ -44,9 +78,6 @@ router.get("/login", (req, res) => {
         // 如果未查询到,返回的是空数组
         if (result.length) {
             req.session.id = result[0].id;
-            console.log(result)
-            console.log(result[0].id)
-            console.log(req.session)
             res.send({
                 code: 1,
                 msg: "success login",

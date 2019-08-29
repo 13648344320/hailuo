@@ -9,18 +9,8 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/laydate.js"></script>
+    <script src="js/lay/laydate/laydate.js"></script>
     <title>海螺</title>
-    <script>
-      lay('#version').html('-v' + laydate.v);
-        laydate.render({
-          elem: '#test6',
-          range: true,
-          change: function (value, date, enddate) {
-            console.log(value, date, enddate)
-          }
-        });
-    </script>
   </head>
   <body>
     <div id="app"></div>
