@@ -63,9 +63,9 @@
                     <!-- 1F -->
                     <div class="list_5" v-for="(item,i) of list"  :key="i">
                         <div class="list_2a">
-                            <div class="list_2b">
+                            <div class="list_2b" @click="enterDetails($event)">
                                 <!-- 左侧图片 -->
-                                <img :src="item.pics"> 
+                                <img :src="item.pics" :data-id="item.pid"> 
                             </div>
                             <!-- 中间内容 -->
                             <div class="list_2c">
@@ -175,6 +175,12 @@ export default {
         }
     },
     methods:{
+        enterDetails(e){
+            //  单击图片  获图片id
+            var pid = e.target.dataset.id;
+            // 携带参数跳转到 pid
+            this.$router.push({path:'/detail',query:{pid:pid}})
+        },
         findAll(){
             // 在页面加载阶段获取从首页搜索关键字
             var find = this.$route.query.find;
@@ -183,6 +189,7 @@ export default {
                 var obj={obj:find}
                 this.axios.get("find",{params:obj}).then(res=>{
                     this.list = res.data;
+                    console.log(this.list)
                 }
             )
         },

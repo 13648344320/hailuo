@@ -43,7 +43,10 @@ router.get("/login", (req, res) => {
         if (err) throw err;
         // 如果未查询到,返回的是空数组
         if (result.length) {
-            // req.session.id = result[0].id;
+            req.session.id = result[0].id;
+            console.log(result)
+            console.log(result[0].id)
+            console.log(req.session)
             res.send({
                 code: 1,
                 msg: "success login",

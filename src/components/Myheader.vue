@@ -16,10 +16,10 @@
                         <ul class="navbar-nav  ul-daoh  ">
                             <li class="nav-item"><a class="nav-link p-0">人民币-¥</a></li>
                             <li class="nav-item"><a class="nav-link p-0">出租房源</a></li>
-                            <li class="nav-item"><a class="nav-link p-0">开展体验</a></li>
-                            <li class="nav-item"><a class="nav-link p-0">帮助</a></li>
-                            <li class="nav-item" @click="reg"><a class="nav-link p-0">{{regin}}</a></li>
-                            <li class="nav-item" @click="login"><a class="nav-link p-0">{{loginin}}</a></li>
+                            <li class="nav-item"><a class="nav-link p-0">欢迎您：{{$store.getters.get}}</a></li>
+                            <li class="nav-item" :style="{display:open}" @click="reg"><a class="nav-link p-0">{{regin}}</a></li>
+                            <li class="nav-item" :style="{display:open}" @click="login"><a class="nav-link p-0">{{loginin}}</a></li>
+                            <li class="nav-item" :style="{display:quit}" @click="quitlog"><a class="nav-link p-0">退出登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,10 +33,21 @@
             return {
                 find:"",
                 regin:"注册",
-                loginin:"登录"
+                loginin:"登录",
+                open:"",   // 控制登录 注册 是否显示
+                quit:"",    // 控制退出登录是否显示
             }
         },
         methods: {
+            // 单击退出按钮时
+            quitlog(){
+                //  提醒用户是否退出
+              var c = confirm('是否确认退出？')
+                if(c==true){
+                    
+                }
+            },
+            // 清空session
             // 前往登录页面
             login(){
                 this.$router.push('/Login')
@@ -70,6 +81,16 @@
             },
             backhome(){
                 this.$router.push("/")
+            }
+        },
+        created(){
+            //  页面加载时通过$store.getters.get判断是否登录
+            if(this.$store.state.uname==''){
+                this.open = ''
+                this.quit = 'none' 
+            }else{
+                this.open = 'none'
+                this.quit = '' 
             }
         },
         computed: {

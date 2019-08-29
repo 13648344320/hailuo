@@ -123,7 +123,7 @@ export default {
          this.axios.get(url,{params:obj})
          .then((res)=>{
              if(res.data.code===1){
-                 console.log(res.data)
+                 this.$store.commit("show",this.uname)
                  this.$router.push("/")
              }else if(res.data.code===-1){
                  this.uname_err="账号或密码错误"

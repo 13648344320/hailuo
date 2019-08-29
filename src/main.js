@@ -36,22 +36,16 @@ Vue.use(Vuex)
 //   创建一个vuex的存储对象
 var store = new Vuex.Store({
   state: {
-    cartCount: 0
+    uname: ''
   }, //共享数据
   mutations: { //添加修改数据函数
-    increment(state) { //购物车数量加一
-      state.cartCount++
+    show(state,uname) { //
+      state.uname=uname
     },
-    reduce(state) { //购物车数量减一
-      state.cartCount--
-    },
-    clear(state) { //清空购物车
-      state.cartCount = 0
-    }
   },
   getters: { //添加获取数据函数
-    getCartCount(state) {
-      return state.cartCount;
+    get(state) {
+      return state.uname;
     }
   },
   actions: { //添加异步操作数据函数

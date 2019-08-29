@@ -44,13 +44,7 @@
                     </div>
                     <!-- 导航栏 -->
                     <div class="zt-btn" @click="getInner($event)">
-                        <button class="active">渝中区</button>
-                        <button>渝北区</button>
-                        <button>江北区</button>
-                        <button>南岸区</button>
-                        <button>九龙坡区</button>
-                        <button>沙坪坝区</button>
-                        <button>大渡口区</button>
+                        <button  :class="{active:f}" v-for="(itemtop,p) of listtop" :key="p">{{itemtop}}</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
@@ -136,8 +130,11 @@
 export default {
     data(){
         return{
+            f:'',
             list:[],
-            find:""
+            find:"",
+            listtop:['渝中区','渝北区','江北区','南岸区','九龙坡区','沙坪坝区','大渡口区'],
+            listbottom:[]
         }
     },
     
@@ -145,12 +142,16 @@ export default {
         // 监听用户点击上面的地区时
             getInner(e){
                 if(e.target.localName ==="button"){
+                    // 给点击的class加上active
+                  
                     var  btn = e.target.innerHTML;
+                    
+                    e.target.className = "active"
+                    
                     var obj={obj:btn}
                     var url = "find"
                     this.axios.get(url,{params:obj}).then(res=>{
                     // 如果没找到数据 提示用户没有查询到当地数据
-                    console.log(res)
                     if(res.data.code==-1){
                         alert("暂无该地区的房源信息");
                         return;
@@ -188,9 +189,11 @@ export default {
             intoDetail(e){
                 var pid = e.target.dataset.id;
                 // 将获得的 id 传入 detail 页面
-                console.log(pid)
                 this.$router.push({path:"/detail",query:{pid:pid}})
             }
+    },
+    mounted(){
+       console.log(this.ps)
     },
     created() {
         //  页面创建的时候，查询数据库，获取默认为渝中区的数据

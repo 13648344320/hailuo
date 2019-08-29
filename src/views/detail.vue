@@ -259,7 +259,7 @@
                         </li>
                         <li class="ulClose" @click="ulClose">关闭</li>
                     </ul>
-                    <div class="detail_date_book" @click="book"><a>预定</a></div>
+                    <div class="detail_date_book" @click="book" ><a>预定</a></div>
                 </div>
             </div>
         </div>
@@ -285,9 +285,9 @@ export default {
     methods: {
         book(){
             // 点击预定，获取当前的价格 price  人数gro  detail 位置信息  当前用户的姓名
-            
+            console.log(this.pros)
             // 向booklist中插入 以上数据
-
+            
             // 对插入进行验证  成功之后再进行跳转到booked界面  
         },
         reduceN(){
@@ -375,5 +375,4 @@ export default {
 </script>
 <style>
 
-    /* @import url("../assets/css/detail.css"); */
 </style>
