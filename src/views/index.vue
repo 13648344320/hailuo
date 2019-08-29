@@ -27,7 +27,7 @@
                 </div>
                 <div class="fy-c">
                     <i class="img-rili"></i>
-                    <input type="text" placeholder="入住日期-退房日期" id="test6" readonly>
+                    <input type="text" placeholder="入住日期-退房日期" id="test6" readonly v-model="date"  @click="kankan">
                 </div>
                 <div class="fy-d">
                     <a href="javascript:;">搜索</a>
@@ -44,7 +44,7 @@
                     </div>
                     <!-- 导航栏 -->
                     <div class="zt-btn" @click="getInner($event)">
-                        <button  :class="{active:f}" v-for="(itemtop,p) of listtop" :key="p">{{itemtop}}</button>
+                        <button :data-id="p" :class="{active:p==data}" v-for="(itemtop,p) of listtop" :key="p">{{itemtop}}</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
@@ -84,13 +84,7 @@
                     </div>
                     <!-- 导航栏 -->
                     <div class="zt-btn" @click="getInner($event)">
-                        <button class="active">洪崖洞</button>
-                        <button>解放碑</button>
-                        <button>观音桥</button>
-                        <button>磁器口</button>
-                        <button>朝天门</button>
-                        <button>南滨路</button>
-                        <button>江北机场</button>
+                        <button :class="{active:p==data}" :data-id = "p" v-for="(itembto,p) of listbottom" :key='p'>{{itembto}}</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
@@ -130,26 +124,29 @@
 export default {
     data(){
         return{
-            f:'',
+            date:'',
+            data:0,
             list:[],
             find:"",
             listtop:['渝中区','渝北区','江北区','南岸区','九龙坡区','沙坪坝区','大渡口区'],
-            listbottom:[]
+            listbottom:['洪崖洞','解放碑','观音桥','磁器口','朝天门','南滨路','江北机场']
         }
     },
     
     methods: {
+        // 测试date
+        kankan(){
+            console.log(this.date)
+        },
         // 监听用户点击上面的地区时
             getInner(e){
                 if(e.target.localName ==="button"){
                     // 给点击的class加上active
-                  
                     var  btn = e.target.innerHTML;
-                    
-                    e.target.className = "active"
-                    
+                    this.data = e.target.dataset.id
                     var obj={obj:btn}
                     var url = "find"
+                    console.log(this.date)
                     this.axios.get(url,{params:obj}).then(res=>{
                     // 如果没找到数据 提示用户没有查询到当地数据
                     if(res.data.code==-1){

@@ -5,13 +5,10 @@
 </template>
 
 <script>
-// import MyHeader from './components/Myheader.vue'
+          
 
 export default {
   name: 'app',
-  // components: {
-  //   MyHeader
-  // }
 }
 </script>
 
