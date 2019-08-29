@@ -112,7 +112,9 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
 .lb-fang .fy-b{float: left;}
 .lb-fang .fy-c{float: left;border-left:1px solid #ccc;}
 .lb-fang .fy-d{float: left;}
-.lb-fang .fy-a select{
+.lb-fang .fy-a div{
+    text-align: center;
+    line-height: 72px;
     width:70px;
     height:72px;
     font-size:17px;
