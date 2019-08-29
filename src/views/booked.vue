@@ -8,7 +8,7 @@
                     </a>
                 </div>
                 <ul class="booked-top-right">
-                    <li>海螺欢迎您:&nbsp;<span>{{}}</span></li>
+                    <li>海螺欢迎您:&nbsp;<span>{{$store.getters.get}}</span></li>
                     <li>优惠活动</li>
                     <li>商旅合作</li>
                 </ul>
@@ -20,7 +20,7 @@
                             <li v-for="(item,i) of list"  :key="i">
                                 <div>
                                     <div class="booked-body-list-img">
-                                        <img src="https://s2.ax1x.com/2019/08/17/mn0qFs.jpg">
+                                        <img :src="item.pics">
                                     </div>
                                     <div>
                                         <p>
