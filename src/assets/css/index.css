@@ -58,13 +58,14 @@ body{font-family: Circular, PingFang-SC, "Hiragino Sans GB", 微软雅黑, "Micr
 }
 #content .ul-daoh li a{
     border-bottom: 2px solid transparent;
-    color:#ff5a5f;                       /*字体颜色*/
+    color:#1a9884;
+    /*字体颜色*/
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
 }
 #content .ul-daoh li a:hover{
-    color: #00848a;
+    color: #52ccce;
     border-bottom: 2px solid #00848a;
 }
 
