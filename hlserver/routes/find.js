@@ -6,7 +6,11 @@ const pool = require("../pool");
 // 页面加载时自动获取
 router.get("/", (req, res) => {
     var obj = req.query.obj
-    var sql = `SELECT * FROM hl_products WHERE county LIKE '%${obj}%' OR type LIKE '%${obj}%'`
+    if(!obj){
+         var sql = `SELECT * FROM hl_products`
+    }else{
+        var sql = `SELECT * FROM hl_products WHERE county LIKE '%${obj}%' OR type LIKE '%${obj}%'`
+    }
     pool.query(sql,[obj], (err, result) => {
         if (err) {
             console.log(err)
@@ -23,7 +27,6 @@ router.get("/", (req, res) => {
 //  detail 页面加载时获取  对应的 id 值查询图片   hl_details表
 router.get("/details",(req,res)=>{
     var pid = req.query.pid
-    console.log(pid)
     var sql = `SELECT * FROM hl_details WHERE pid=?`
     pool.query(sql, [pid], (err, result)=>{
         if(err) throw err;
@@ -40,7 +43,6 @@ router.get("/details",(req,res)=>{
 //  detail 页面加载时获取  对应的 id 值查询  hl_products 表
 router.get("/products", (req, res) => {
     var pid = req.query.pid
-    console.log(pid)
     var sql = `SELECT * FROM hl_products WHERE pid=?`
     pool.query(sql, [pid], (err, result) => {
         if (err) throw err;

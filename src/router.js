@@ -6,7 +6,7 @@ import Index from './views/index'
 import List from './views/list'
 import Login from './views/Login'
 import Reg from './views/Reg'
-
+import NotFind from './views/Notfind'
 Vue.use(Router)
 
 export default new Router({
@@ -36,6 +36,9 @@ export default new Router({
             }, {
                 path: "/Reg",
                 component: Reg
+            },{
+                path:'*',
+                component:NotFind
             }
             
         ]

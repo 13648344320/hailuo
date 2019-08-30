@@ -283,7 +283,7 @@ export default {
             n:1,     //  客人数目
             m:0,
             b:0,
-            pics:[1],  //保存请求 details 获得的数组
+            pics:[0],  //保存请求 details 获得的数组
             pros:[1],    //保存 请求product 获得详细数据
             time:'123',
             Tian:1,      // 预定的天数
@@ -420,7 +420,13 @@ export default {
     },
     created(){
         // 页面加载时获取获取上个页面传过来的商品pid
-        var pid = this.$route.query.pid
+        // 如果上一个页面没有传参数过来
+        if(!this.$route.query.pid){         
+            var pid = 1
+        }else{
+            var pid = this.$route.query.pid
+        }
+
         pid={pid:pid}
         // 查询数据库  商品列表
         this.axios.get("/find/details",{params:pid}).then((res)=>{
