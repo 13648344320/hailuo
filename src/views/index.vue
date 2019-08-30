@@ -57,7 +57,7 @@
                         </div>
                         <!-- 查看更多 -->
                         <div class="zt-chak">
-                            <a href="javascript:;">查看更多重庆房源<img src="../../public/img/index/dayu01.png" alt=""></a>
+                            <a @click="toList">查看更多重庆房源<img src="../../public/img/index/dayu01.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                         </div>
                         <!-- 查看更多 -->
                         <div class="zt-chak">
-                            <a href="javascript:;">查看更多重庆房源<img src="../../public/img/index/dayu01.png" alt=""></a>
+                            <a @click="toList">查看更多重庆房源<img src="../../public/img/index/dayu01.png" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -123,6 +123,10 @@ export default {
     },
     
     methods: {
+        //  点击加载更多  跳转到list
+            toList(){
+                this.$router.push('/list')
+            },
         // 监听用户点击上面的地区时
             getInner(e){
                 if(e.target.localName ==="button"){

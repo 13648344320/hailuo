@@ -421,10 +421,11 @@ export default {
     created(){
         // 页面加载时获取获取上个页面传过来的商品pid
         // 如果上一个页面没有传参数过来
+        var pid
         if(!this.$route.query.pid){         
-            var pid = 1
+             pid = 1
         }else{
-            var pid = this.$route.query.pid
+             pid = this.$route.query.pid
         }
 
         pid={pid:pid}
