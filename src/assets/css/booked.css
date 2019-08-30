@@ -14,7 +14,8 @@
     height: 70px;;
 }
 #booked .booked-top div.booked-top-log a img{
-    height: 70px;
+    height: 84px;
+    width: 70%;
 }
 #booked .booked-top ul.booked-top-right{
     display: flex;
@@ -23,8 +24,9 @@
     margin-left: 30px;
     height: 100%;
     line-height: 70px;
-    font-size: 14px;
+    font-size: 20px;
     cursor: pointer;
+    color: #008489;
 }
 /*  上面是 booked 头部分  */
 /*  下面是 booked 主体部分  */

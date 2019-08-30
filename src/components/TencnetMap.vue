@@ -17,7 +17,6 @@
     mounted () {
     
         MapLoader().then(AMap => {
-            console.log(AMap)
             this.map = new AMap.Map('MAP', {
             center: [this.lng,this.lat],//[lng:经度,lat:纬度]
             zoom: 10,
@@ -28,7 +27,7 @@
         // 将新创建的点标记添加到已有的地图实例
         this.map.add(marker);
       }, e => {
-        console.log('地图加载失败' ,e)
+        window.console.log('地图加载失败' ,e)
     })
   }
 }

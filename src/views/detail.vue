@@ -187,7 +187,7 @@
                 </div>
                 <!-- 右侧的预定功能部分 -->
                 <div class="detail_date" id="detail_date" :style="{display:show}">
-                    <div class="detail_date_price">￥398 <span>每晚</span> </div>
+                    <div class="detail_date_price">￥{{pros[0].price}} <span>每晚</span> </div>
                     <div class="detail_date_sale">
                         <div>
                             <div class="date_svg">
@@ -207,7 +207,7 @@
                     </div>
                     <div style="font-weight:bolder">房客</div>
                     <div class="detail_date_gro" @click="detail_gro">
-                        <span>一位房客</span>
+                        <span>{{n+m+b}}位房客</span>
                         <svg viewBox="0 0 18 18" 
                         :style="{display:svg1}"
                         role="presentation" aria-hidden="true" focusable="false"
@@ -260,6 +260,10 @@
                         <li class="ulClose" @click="ulClose">关闭</li>
                     </ul>
                     <div class="detail_date_book" @click="book" ><a>预定</a></div>
+                    <div >
+                        <span style="font-size:16px;font-weight:600;">小计：</span>
+                        <span style="color:red;font-size:20px;font-weight:600;">共￥{{Tian*pros[0].price}}</span>    
+                    </div>
                 </div>
             </div>
         </div>
@@ -282,6 +286,7 @@ export default {
             pics:[1],  //保存请求 details 获得的数组
             pros:[1],    //保存 请求product 获得详细数据
             time:'123',
+            Tian:1,      // 预定的天数
 
         }
     },
@@ -290,12 +295,14 @@ export default {
         book(){
             //   判断当先用户是否登录
             var uname = this.$store.state.uname;
-            console.log(uname)
+            var n= this.n;
+            var m = this.m;
+            var b = this.b
             if(uname){ 
                 // 点击预定，获取当前的价格 price  人数gro  detail 位置信息  当前用户的姓名
                 var obj = {
-                    price:this.pros[0].price,
-                    gro:this.pros[0].gro,
+                    price:this.pros[0].price*this.Tian,
+                    gro:n+m+b,
                     details:this.pros[0].detail,
                     uname:uname,
                     county:this.pros[0].county,
@@ -306,16 +313,21 @@ export default {
                     pid:this.pros[0].pid,
                     time:this.time
                 }
-                console.log(obj)
                 // 向booklist中插入 以上数据
                 var url ="booked/insert"
+                // 对插入进行验证  成功之后再进行跳转到booked界面 
                 this.axios.get(url,{params:obj}).then((res)=>{
                     if(res.data.code==1){
                         this.$router.push("/booked")
                     }
                 })
+            }else{
+                var islog=confirm('您还没有登录，是否前往登录')
+                if(islog==true){
+                    this.$router.push('/Login')
+                }
             }
-            // 对插入进行验证  成功之后再进行跳转到booked界面  
+            
         },
         reduceN(){
             // 单击事件  控制  n 人 数的减少
@@ -378,13 +390,26 @@ export default {
             }
         },
         getlaydate(){
-             //  引入日期时间组件
+       
           laydate.render({
           elem: '#test6',
           type:'datetime',
           range: true,
-          change:  (value, date, enddate)=> {
+          change:  (value,start,endstart)=> {
             this.time =  value;
+            if(start.year==endstart.year){
+                if(endstart.month==start.month){
+                 var  Tian1 = endstart.date - start.date 
+                    this.Tian = Tian1
+                }else{
+                   var k = endstart.month-start.month
+                   var  Tian2 = (k-1)*30 + endstart.date+(30-start.date)
+                   this.Tian = Tian2
+                }
+            }else{
+                alert("预定时间过长")
+                return;
+            }
           }
         });
         }

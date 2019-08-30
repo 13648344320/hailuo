@@ -135,10 +135,6 @@ export default {
     },
     
     methods: {
-        // 测试date
-        kankan(){
-            console.log(this.date)
-        },
         // 监听用户点击上面的地区时
             getInner(e){
                 if(e.target.localName ==="button"){
@@ -147,7 +143,6 @@ export default {
                     this.data = e.target.dataset.id
                     var obj={obj:btn}
                     var url = "find"
-                    console.log(this.date)
                     this.axios.get(url,{params:obj}).then(res=>{
                     // 如果没找到数据 提示用户没有查询到当地数据
                     if(res.data.code==-1){
@@ -161,7 +156,7 @@ export default {
                  )}
             },
         // 监听键盘回车时的搜索
-            findMsg(e){
+            findMsg(){
                 //  用 find 中的值  查询数据库
                 // 如果没有找到 提示用户没找到相关信息
                 // 如果找到
@@ -171,7 +166,6 @@ export default {
                 var obj ={obj:this.find} ;
                 this.axios.get(url,{params:obj}).then(res=>{
                     // 如果没找到数据 提示用户没有查询到当地数据
-                    console.log(res)
                     if(res.data.code==-1){
                         alert("暂无该地区的房源信息");
                         return;
@@ -191,7 +185,7 @@ export default {
             }
     },
     mounted(){
-       console.log(this.ps)
+ 
     },
     created() {
         //  页面创建的时候，查询数据库，获取默认为渝中区的数据

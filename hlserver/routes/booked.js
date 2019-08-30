@@ -3,8 +3,10 @@ const router = express.Router();
 const pool = require("../pool");
 // 页面加载时自动获取
 router.get("/", (req, res) => {
-    var sql = `SELECT * FROM hl_booklist `
-    pool.query(sql, (err, result) => {
+    var uname  =req.query.obj
+    console.log(uname)
+    var sql = `SELECT * FROM hl_booklist WHERE uname = ?`
+    pool.query(sql,[uname], (err, result) => {
         if (err) {
             res.send(err);
             console.log(err);
@@ -15,7 +17,6 @@ router.get("/", (req, res) => {
 })
 //  向booklist 中添加数据
 router.get('/insert',(req,res)=>{
-    console.log(req)
     var pid = req.query.pid;
     var uname = req.query.uname;
     var county = req.query.county;
@@ -27,8 +28,6 @@ router.get('/insert',(req,res)=>{
     var details = req.query.details;
     var price = req.query.price;
     var time = req.query.time;
-    console.log(uname)
-    console.log(pid)
     var sql = `
     INSERT INTO hl_booklist VALUE( null,?,?,?,?,?,?,?,?,?,?,? )
     `
@@ -119,7 +118,6 @@ router.post("/insert_user", (req, res) => {
     var uname = req.body.uname;
     var password = req.body.pwd;
     var phone = req.body.phone;
-    console.log(uname, password, phone)
     var sql = `INSERT INTO hl_user VALUE(?,?,?,?)`
     pool.query(sql, [null, uname, password, phone], (err, result) => {
         if (result.affectedRows > 0) {

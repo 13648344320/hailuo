@@ -44,7 +44,7 @@
                 //  提醒用户是否退出
               var c = confirm('是否确认退出？')
                 if(c==true){
-                    
+                     this.$store.commit("show",'')
                 }
             },
             // 清空session
@@ -57,7 +57,7 @@
                 this.$router.push('/Reg')
             },
             // 监听键盘回车时的搜索
-            findMsg(e){
+            findMsg(){
                 //  用 find 中的值  查询数据库
                 // 如果没有找到 提示用户没找到相关信息
                 // 如果找到
@@ -66,7 +66,6 @@
                 var obj ={obj:this.find} ;
                 this.axios.get(url,{params:obj}).then(res=>{
                     // 如果没找到数据 提示用户没有查询到当地数据
-                    console.log(res)
                     if(res.data.code==-1){
                         alert("暂无该地区的房源信息");
                         return;

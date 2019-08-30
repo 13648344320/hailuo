@@ -131,6 +131,7 @@ export default {
                  this.createCode(); //刷新验证码
              }
          }).catch((err)=>{
+             window.console.log(err)
              alert("登录失败,请稍后再试")
          })
        }

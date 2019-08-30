@@ -4,7 +4,7 @@
             <div class="booked-top">
                 <div class="booked-top-log">
                     <a @click="home">
-                        <img src="../../public/img/booked/book-log.png">
+                        <img src="../../public/img/booked/book-log.png" style="cursor:pointer">
                     </a>
                 </div>
                 <ul class="booked-top-right">
@@ -30,14 +30,13 @@
                                             <img src="../../public/img/booked/sleep.png" alt="">   <span>1间卧室</span>  <img src="../../public/img/booked/bathroom.png" alt=""> <span>1间卫生间</span> <img src="../../public/img/booked/bed.png" alt=""> <span>1张床</span>
                                         </p>
                                         <div class="booked-body-price">
-                                         <a>￥{{item.price}} / 晚</a>
+                                         <a>￥{{item.price}} / 共</a>
                                         </div>
                                     </div>  
                                 </div>
                                 <div class="booked-body-list-date">
-                                    <h6>入住起止时间</h6>
-                                    <input type="text" class="booked-date-in" disabled>
-                                    <input type="text" disabled>
+                                    <h6 style="font-size:20px; font-weight:600">入住起止时间</h6>
+                                    <span style="font-size:20px; font-weight:600;color:#f00">{{item.time}}</span>
                                 </div>
                                 <div class="booked-body-list-details">
                                     <h6>入住信息</h6>
@@ -78,6 +77,7 @@ export default {
     data(){
         return{
             list:[],
+            uname:''
         }
     },
     methods: {
@@ -104,7 +104,9 @@ export default {
         },
         select(){
             var url= "booked";
-                this.axios.get(url).then(res=>{     
+                var uname = this.$store.state.uname;
+                var obj={obj:uname}
+                this.axios.get(url,{params:obj}).then(res=>{     
                     // console.log(res);
                 // 2 获取返回的结果
                 // 4 获取数据成功    
