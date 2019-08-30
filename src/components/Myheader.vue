@@ -3,7 +3,7 @@
     <div class="container w_100 ">
                 <div class="navbar navbar-expand-lg navbar-dark p-0">
                     <div class="navbar-brand">
-                        <div class="img-logo" @click="backhome"><img src="../../public/img/index/logo02.png"></div>
+                        <div class="img-logo" @click="backhome" style="cursor:pointer"><img src="../../public/img/index/logo02.png"></div>
                         <div class="img-sou">
                             <i class="sou"></i>
                             <input class="form-control" type="text" placeholder="搜“洪崖洞”试试" v-model="find" @keyup.enter="findMsg">

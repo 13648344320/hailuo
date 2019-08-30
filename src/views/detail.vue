@@ -390,7 +390,6 @@ export default {
             }
         },
         getlaydate(){
-       
           laydate.render({
           elem: '#test6',
           type:'datetime',

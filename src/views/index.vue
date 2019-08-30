@@ -36,7 +36,7 @@
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
                             <!-- 一个详细信息 -->
-                            <div class="zt-tu-width" v-for="(item,i) of list" :key="i">
+                            <div class="zt-tu-width" v-for="(item,i) of list1" :key="i">
                             <div class="div-h1" >
                                 <!-- 图片 -->
                                 <div class="div-img" ><a href="javascript:;"><img :src="item.pics" @click="intoDetail" :data-id="item.id"></a></div>
@@ -70,21 +70,21 @@
                         <h3>秋季特惠房源</h3>
                     </div>
                     <!-- 导航栏 -->
-                    <div class="zt-btn" @click="getInner($event)">
-                        <button :class="{active:p==data}" :data-id = "p" v-for="(itembto,p) of listbottom" :key='p'>{{itembto}}</button>
+                    <div class="zt-btn" @click="getInner2($event)">
+                        <button :class="{active:pb==data2}" :data-id = "pb" v-for="(itembto,pb) of listbottom" :key='pb'>{{itembto}}</button>
                     </div>
                     <!-- 图文区域 -->
                     <div class="zt-tuwen">
                         <!-- 一个详细信息 -->
-                        <div class="zt-tu-width" v-for="(item,i) of list" :key="i">
+                        <div class="zt-tu-width" v-for="(item2,i) of list2" :key="i">
                             <div class="div-h1" >
                                 <!-- 图片 -->
-                                <div class="div-img"    @click="intoDetail"><a href="javascript:;"><img :src="item.pics" :data-id="item.id"></a></div>
+                                <div class="div-img"    @click="intoDetail"><a href="javascript:;"><img :src="item2.pics" :data-id="item2.id"></a></div>
                                 <!-- 详细 -->
                                 <div class="div-text">
-                                    <span><a href="javascript:;">{{item.type}} · 1张床</a></span>
-                                    <p><a href="javascript:;">{{item.details}}</a></p>
-                                    <span>￥{{item.price}}</span>
+                                    <span><a href="javascript:;">{{item2.type}} · 1张床</a></span>
+                                    <p><a href="javascript:;">{{item2.details}}</a></p>
+                                    <span>￥{{item2.price}}</span>
                                     <span>￥424</span>
                                     <span>每晚</span>
                                     <!-- 五星好评 -->
@@ -112,8 +112,10 @@ export default {
     data(){
         return{
             date:'',
-            data:0,
-            list:[],
+            data:0,  // 上面的
+            data2:0,  //  下面的
+            list1:[],
+            list2:[],
             find:"",
             listtop:['渝中区','渝北区','江北区','南岸区','九龙坡区','沙坪坝区','大渡口区'],
             listbottom:['洪崖洞','解放碑','观音桥','磁器口','朝天门','南滨路','江北机场']
@@ -136,7 +138,27 @@ export default {
                         return;
                     }else{
                         // 携带 find 中的值 跳转 到list 组件
-                        this.list = res.data
+                        this.list1 = res.data
+                     }
+                   }
+                 )}
+            },
+            // 监听用户点击上面的地区时
+            getInner2(e){
+                if(e.target.localName ==="button"){
+                    // 给点击的class加上active
+                    var  btn = e.target.innerHTML;
+                    this.data2 = e.target.dataset.id
+                    var obj={obj:btn}
+                    var url = "find"
+                    this.axios.get(url,{params:obj}).then(res=>{
+                    // 如果没找到数据 提示用户没有查询到当地数据
+                    if(res.data.code==-1){
+                        alert("暂无该地区的房源信息");
+                        return;
+                    }else{
+                        // 携带 find 中的值 跳转 到list 组件
+                        this.list2 = res.data
                      }
                    }
                  )}
@@ -168,18 +190,31 @@ export default {
                 var pid = e.target.dataset.id;
                 // 将获得的 id 传入 detail 页面
                 this.$router.push({path:"/detail",query:{pid:pid}})
+            },
+            topfind(){
+                //  页面创建的时候，查询数据库，获取默认为渝中区的数据
+                var obj = {obj:"渝中"}
+                this.axios.get("find",{params:obj}).then(res=>{
+                    //  遍历加载  
+                    this.list1 = res.data;
+                })
+            },
+            btnfind(){
+                //  下面部分
+                var obj = {obj:"洪崖洞"}
+                this.axios.get("find",{params:obj}).then(res=>{
+                    //  遍历加载  
+                    this.list2 = res.data;
+                })
             }
     },
     mounted(){
- 
+        
     },
     created() {
-        //  页面创建的时候，查询数据库，获取默认为渝中区的数据
-        var obj = {obj:"渝中"}
-        this.axios.get("find",{params:obj}).then(res=>{
-            //  遍历加载  
-            this.list = res.data;
-        })
+        this.topfind()
+        this.btnfind()
+        
         
     },
 }
