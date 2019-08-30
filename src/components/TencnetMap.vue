@@ -9,8 +9,8 @@
     export default {
     data () {
         return {
-            lng:117.00093223123,
-            lat:37.67211235,
+            lng:106.550464,
+            lat:29.563761,
         }
     },
     name: 'test',

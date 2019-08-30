@@ -38,7 +38,7 @@
                     </ul>
                 </div>    
                     <div class="ttext">
-                        <b>开发团队：&lt;&lt;未来猿人&gt;&gt;  &nbsp;© &nbsp;2019&nbsp;-&nbsp;8&nbsp;-&nbsp;1 </b>
+                        <b>开发团队：&lt;&lt;未来猿人&gt;&gt;  &nbsp;© &nbsp;2019&nbsp;-&nbsp;8&nbsp;-&nbsp;27 </b>
                     </div> 
             </div>
 </template>

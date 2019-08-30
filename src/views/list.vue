@@ -120,7 +120,7 @@
                                                 <div class="list_3c">"
                                                     <span class="list_3d">
                                                         <span>
-                                                            地理位置蛮偏的,睡觉觉得很不安全!因为四周的窗都没窗帘,白天二楼有人修理空调,随时都会突然有人在窗外出现...房间是很漂亮的,就是觉得不太安全!
+                                                            风景很好，房东很热情
                                                         </span>
                                                     </span>
                                                     "
@@ -165,7 +165,6 @@
     </div>  
 </template>
 <script>
-import { watch } from 'fs';
 
 export default {
     data(){
@@ -189,7 +188,6 @@ export default {
                 var obj={obj:find}
                 this.axios.get("find",{params:obj}).then(res=>{
                     this.list = res.data;
-                    console.log(this.list)
                 }
             )
         },

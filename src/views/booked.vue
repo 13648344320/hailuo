@@ -4,8 +4,10 @@
             <div class="booked-top">
                 <div class="booked-top-log">
                     <a @click="home">
-                        <img src="../../public/img/booked/book-log.png" style="cursor:pointer">
+                        <img src="../../public/img/booked/book-log.png" style="cursor:pointer" title="回到首页">
+                        <span style="display:inline-block;font-size:32px;color:#00848a;margin-left:32px; ">| &nbsp;回到首页</span>
                     </a>
+                    
                 </div>
                 <ul class="booked-top-right">
                     <li>海螺欢迎您:&nbsp;<span>{{$store.getters.get}}</span></li>

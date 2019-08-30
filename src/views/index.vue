@@ -11,27 +11,13 @@
                 <div class="mm">
                     <div class="fy-a">
                         <div>房源</div>
-                        <!-- <select>
-                             <option class="juzhong">房源</option>
-                            <option>渝中区</option>
-                            <option>渝北区</option>
-                            <option>江北区</option>
-                            <option>南岸区</option>
-                            <option>大渡口区</option>
-                            <option>九龙坡区</option>
-                            <option>沙坪坝区</option>
-                        </select> -->
                     </div>
                 <div class="fy-b">
                     <i class="img-dingw"></i>
                     <input type="text" placeholder="输入目的地、城市" v-model="find" @keydown.enter="findMsg">
                 </div>
-                <!-- <div class="fy-c">
-                    <i class="img-rili"></i>
-                    <input type="text" placeholder="入住日期-退房日期" id="test6" readonly v-model="date"  @click="kankan">
-                </div> -->
                 <div class="fy-d">
-                    <a href="javascript:;">搜索</a>
+                    <a @click="findMsg" style="cursor:pointer">搜索</a>
                 </div>
             </div>
             </div>

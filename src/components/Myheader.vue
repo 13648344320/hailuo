@@ -18,6 +18,7 @@
                             <li class="nav-item"><a class="nav-link p-0">出租房源</a></li>
                             <li class="nav-item"><a class="nav-link p-0">欢迎您：{{$store.getters.get}}</a></li>
                             <li class="nav-item" :style="{display:open}" @click="reg"><a class="nav-link p-0">{{regin}}</a></li>
+                            <li class="nav-item" :style="{display:quit}"><a class="nav-link p-0" @click="bookInto">我的订单</a></li>
                             <li class="nav-item" :style="{display:open}" @click="login"><a class="nav-link p-0">{{loginin}}</a></li>
                             <li class="nav-item" :style="{display:quit}" @click="quitlog"><a class="nav-link p-0">退出登录</a></li>
                         </ul>
@@ -39,12 +40,18 @@
             }
         },
         methods: {
+            // 进入订单
+            bookInto(){
+                this.$router.push('booked')
+            },
             // 单击退出按钮时
             quitlog(){
                 //  提醒用户是否退出
               var c = confirm('是否确认退出？')
                 if(c==true){
-                     this.$store.commit("show",'')
+                     this.$store.commit("show",'');
+                     this.quit= 'none';
+                     this.open = "block"
                 }
             },
             // 清空session
