@@ -283,14 +283,25 @@ export default {
             n:1,     //  客人数目
             m:0,
             b:0,
-            pics:[0],  //保存请求 details 获得的数组
+            pics:[{hl_big:""}],  //保存请求 details 获得的数组
             pros:[1],    //保存 请求product 获得详细数据
             time:'123',
             Tian:1,      // 预定的天数
-
+            scrollTop:100,
         }
     },
     methods: {
+        scroll(){
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
+            document.body.scrollTop;
+            this.scrollTop=scrollTop;
+              console.log(scrollTop)
+            if(scrollTop>500 && scrollTop<1800){
+               this.show = "block"
+            }else{
+                this.show = "none"
+            }
+        },
              
         book(){
             //   判断当先用户是否登录
@@ -379,15 +390,16 @@ export default {
         },
         // 鼠标滚动触发事件
         handleScroll(){
-            // 页面滚动距离顶部的距离
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
-                      document.body.scrollTop
-            // console.log(scrollTop)
-            if(scrollTop>500 && scrollTop<1800){
-               this.show = "block"
-            }else{
-                this.show = "none"
-            }
+            // // 页面滚动距离顶部的距离
+            // var scrollTop = window.pageYOffset || document.documentElement.scrollTop || 
+            //           document.body.scrollTop
+            
+            // // console.log(scrollTop)
+            // if(scrollTop>900 && scrollTop<1800){
+            //    this.show = "block"
+            // }else{
+            //     this.show = "none"
+            // }
         },
         getlaydate(){
           laydate.render({
@@ -417,9 +429,14 @@ export default {
         // 添加鼠标向下滚动事件
         window.addEventListener('scroll',this.handleScroll,true);
        this.getlaydate();
+       this.handleScroll();
+
+        
     },
+    
+   
     created(){
-        // 页面加载时获取获取上个页面传过来的商品pid
+    //    // 页面加载时获取获取上个页面传过来的商品pid
         // 如果上一个页面没有传参数过来
         var pid
         if(!this.$route.query.pid){         
@@ -431,6 +448,7 @@ export default {
         pid={pid:pid}
         // 查询数据库  商品列表
         this.axios.get("/find/details",{params:pid}).then((res)=>{
+            console.log(res)
             this.pics = res.data
         })
         // 查询数据库  图片列表
@@ -438,8 +456,7 @@ export default {
             this.pros = res.data
         })
         // 分别加载
-    }
-}
+} }
 </script>
 <style>
 

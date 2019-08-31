@@ -27,8 +27,10 @@ router.get("/", (req, res) => {
 //  detail 页面加载时获取  对应的 id 值查询图片   hl_details表
 router.get("/details",(req,res)=>{
     var pid = req.query.pid
+    console.log(pid)
     var sql = `SELECT * FROM hl_details WHERE pid=?`
     pool.query(sql, [pid], (err, result)=>{
+        console.log(result)
         if(err) throw err;
         if (!result.length) {
             res.send({
